@@ -21,6 +21,7 @@
 # define FUNCTION_ERROR 0
 # define FUNCTION_SUCCESS 1
 # define DUPLICATE_FOUND 1001
+# define EVERYTHING_SORTED 1002
 
 typedef struct	s_stack
 {
@@ -39,11 +40,7 @@ int     store_data(int ac, char *av[], t_stack *stack);
 */
 int		syntax_checker(char *arg);
 int		check_for_dups(t_list *head);
-
-/*
-** list methods
-*/
-void	insertAtFront(t_list **list, void *data);
+int		isSorted(t_list *head);
 
 /*
 **  stack destructor

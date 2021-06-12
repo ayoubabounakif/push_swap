@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef	struct	s_list
 {
@@ -53,6 +54,8 @@ char			*ft_strdup(const char *s1);
 int				*ft_intdup(const int d);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
+char 			*ft_strjoin_c(char *str, char c);
+char			*ft_strjoin_c_beggining(char *s, char c);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
 char			**ft_split_first_sep(char const *s, char c);
@@ -63,6 +66,10 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+
+/*
+** linked list methods
+*/
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 int				ft_lstsize(t_list *lst);
@@ -71,7 +78,8 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-void			print_list(t_list *head);
+void			ft_lstprint_int(t_list *lst); // The printing is typecasted to an int right now
+
 /*
 **	stupid one usage version implementation of realloc
 */
@@ -91,19 +99,19 @@ struct			s_rstr
 /*
 **	rstr constructor
 */
-t_rstr			rstr_create (int alloc);
+t_rstr			rstr_create(int alloc);
 /*
 **	rstr destructor
 */
-void			rstr_destroy (void *rs);
+void			rstr_destroy(void *rs);
 /*
 **	rstr setter
 */
-void			rstr_set (t_rstr rs, size_t index, char value);
+void			rstr_set(t_rstr rs, size_t index, char value);
 /*
 **	appending to the end of the rstr
 */
-void			rstr_add (t_rstr rs, char value);
+void			rstr_add(t_rstr rs, char value);
 /*
 **	clear rstr
 */
@@ -126,9 +134,5 @@ void			cstr_to_rstr_without_n_rs(char *src, t_rstr dst);
 ** make a clone of a resizble string
 */
 t_rstr			rstr_clone(t_rstr src);
-
-
-char 			*ft_strjoin_c(char *str, char c);
-char			*ft_strjoin_c_beggining(char *s, char c);
 
 #endif

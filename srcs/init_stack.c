@@ -29,6 +29,6 @@ int		store_data(int ac, char *av[], t_stack *stack)
 
 	i = 0;
 	while (++i < ac)
-		insertAtFront(&stack->a, ft_intdup(ft_atoi(av[i])));
+		ft_lstadd_back(&stack->a, ft_lstnew((void *)ft_intdup(ft_atoi(av[i]))));
 	return (FUNCTION_SUCCESS);
 }

@@ -34,7 +34,7 @@ int		main(int ac, char *av[])
 		// Constructor
 		if (!(stack = empty_stack_create()))
 			return (EXIT_FAILURE);
-		
+
 		// Setter
 		if (!store_data(ac, av, stack))
 			return (EXIT_FAILURE);
@@ -46,11 +46,24 @@ int		main(int ac, char *av[])
 			return (EXIT_FAILURE);
 		}
 
-		// WILL DO THE SORTING....
+		// Printing my list
+		ft_lstprint_int(stack->a);
+
+		// MAIN PROGRAM :
+		// TO-DO : Check if what's given is already sorted.
+		if (isSorted(stack->a) == EVERYTHING_SORTED)
+		{
+			printf("Supposedly Everything's sorted\n");
+			fflush(stdout);
+			stack_destructor(stack, free);
+			return (EXIT_SUCCESS);
+		}
+
+		// TO-DO : Make methods of push_swap
+	
 		
-		stack_destructor(stack, free);
 		// Stack destructor
-		// TO-DO: Make a stack destructor method stack_destructor((*f)(void));
+		stack_destructor(stack, free);
 	}
 	while (stack->a)
 	{

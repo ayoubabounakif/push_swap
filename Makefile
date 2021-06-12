@@ -8,8 +8,7 @@ EXEC = push_swap
 
 SRC = main.c \
 srcs/init_stack.c srcs/stack_desctructor.c \
-utils/check_for_dups.c utils/syntax_checker.c \
-list_methods/insertAtFront.c \
+utils/check_for_dups.c utils/syntax_checker.c utils/is_sorted.c \
 
 all: $(NAME)
 

@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   check_for_dups.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 19:34:55 by aabounak          #+#    #+#             */
-/*   Updated: 2021/06/11 19:35:13 by aabounak         ###   ########.fr       */
+/*   Created: 2021/06/12 13:10:21 by aabounak          #+#    #+#             */
+/*   Updated: 2021/06/12 13:10:40 by aabounak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
-t_stack	*empty_stack_create(void)
+int		check_for_dups(t_list *head)
 {
-	t_stack *st;
+    int count = 0;
+    t_list	*temp;
+	t_list	*temp1;
 
-	if (!(st = (t_stack *)malloc(sizeof(t_stack))))
-		return (FUNCTION_ERROR);
-	st->a = NULL;
-	st->b = NULL;
-	return (st);
-}
-
-int		store_data(int ac, char *av[], t_stack *stack)
-{
-	int		i;
-
-	i = 0;
-	while (++i < ac)
-		insertAtFront(&stack->a, ft_intdup(ft_atoi(av[i])));
+    temp = head;
+    while (temp != NULL)
+    {
+        temp1 = temp;
+        count = 0;
+        while (temp1 != NULL && temp1->next)
+        {
+            if (*(int *)temp->content == *(int *)temp1->next->content)
+                count++;
+            temp1 = temp1->next;
+        }
+        if (count > 0)
+            return (DUPLICATE_FOUND);
+        temp = temp->next;
+    }
 	return (FUNCTION_SUCCESS);
 }

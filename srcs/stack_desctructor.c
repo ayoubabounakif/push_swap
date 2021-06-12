@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   stack_desctructor.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 19:34:55 by aabounak          #+#    #+#             */
-/*   Updated: 2021/06/11 19:35:13 by aabounak         ###   ########.fr       */
+/*   Created: 2021/06/12 13:20:19 by aabounak          #+#    #+#             */
+/*   Updated: 2021/06/12 13:20:44 by aabounak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
-t_stack	*empty_stack_create(void)
+void    stack_destructor(t_stack *stack, void (*del)(void *))
 {
-	t_stack *st;
-
-	if (!(st = (t_stack *)malloc(sizeof(t_stack))))
-		return (FUNCTION_ERROR);
-	st->a = NULL;
-	st->b = NULL;
-	return (st);
-}
-
-int		store_data(int ac, char *av[], t_stack *stack)
-{
-	int		i;
-
-	i = 0;
-	while (++i < ac)
-		insertAtFront(&stack->a, ft_intdup(ft_atoi(av[i])));
-	return (FUNCTION_SUCCESS);
+    ft_lstclear(&stack->a, (*del));
+    ft_lstclear(&stack->b, (*del));
+    // free(stack);
 }

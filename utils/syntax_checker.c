@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   syntax_checker.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 19:34:55 by aabounak          #+#    #+#             */
-/*   Updated: 2021/06/11 19:35:13 by aabounak         ###   ########.fr       */
+/*   Created: 2021/06/12 13:17:16 by aabounak          #+#    #+#             */
+/*   Updated: 2021/06/12 13:17:51 by aabounak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
-t_stack	*empty_stack_create(void)
+int		syntax_checker(char *arg)
 {
-	t_stack *st;
+	int		tmp;
+	int		index;
 
-	if (!(st = (t_stack *)malloc(sizeof(t_stack))))
+	tmp = ft_atoi(arg);
+	if (tmp == -1953752846 || tmp == 1953752846)
 		return (FUNCTION_ERROR);
-	st->a = NULL;
-	st->b = NULL;
-	return (st);
-}
-
-int		store_data(int ac, char *av[], t_stack *stack)
-{
-	int		i;
-
-	i = 0;
-	while (++i < ac)
-		insertAtFront(&stack->a, ft_intdup(ft_atoi(av[i])));
+	index = 0;
+	if (tmp < 0)
+		index = 1;
+	while (arg[index] != '\0')
+	{
+		if (!ft_isdigit(arg[index]))
+			return (FUNCTION_ERROR);
+		index++;
+	}
 	return (FUNCTION_SUCCESS);
 }

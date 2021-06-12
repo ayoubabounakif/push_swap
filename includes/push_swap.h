@@ -16,8 +16,11 @@
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
 
+# include <string.h>
+
 # define FUNCTION_ERROR 0
 # define FUNCTION_SUCCESS 1
+# define DUPLICATE_FOUND 1001
 
 typedef struct	s_stack
 {
@@ -26,8 +29,25 @@ typedef struct	s_stack
 }				t_stack;
 
 /*
-**  init_stack and store data
+**  stack constructor
 */
-t_stack		*init_stack(int ac, char *av[], t_stack *stack);
+t_stack	*empty_stack_create(void);
+int     store_data(int ac, char *av[], t_stack *stack);
+
+/*
+**  utils
+*/
+int		syntax_checker(char *arg);
+int		check_for_dups(t_list *head);
+
+/*
+** list methods
+*/
+void	insertAtFront(t_list **list, void *data);
+
+/*
+**  stack destructor
+*/
+void    stack_destructor(t_stack *stack, void (*del)(void *));
 
 #endif

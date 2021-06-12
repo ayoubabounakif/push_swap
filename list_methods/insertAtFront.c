@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   insertAtFront.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 19:34:55 by aabounak          #+#    #+#             */
-/*   Updated: 2021/06/11 19:35:13 by aabounak         ###   ########.fr       */
+/*   Created: 2021/06/12 13:14:13 by aabounak          #+#    #+#             */
+/*   Updated: 2021/06/12 13:14:32 by aabounak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
-t_stack	*empty_stack_create(void)
+void	insertAtFront(t_list **list, void *data)
 {
-	t_stack *st;
+	t_list	*newNode;
 
-	if (!(st = (t_stack *)malloc(sizeof(t_stack))))
-		return (FUNCTION_ERROR);
-	st->a = NULL;
-	st->b = NULL;
-	return (st);
-}
-
-int		store_data(int ac, char *av[], t_stack *stack)
-{
-	int		i;
-
-	i = 0;
-	while (++i < ac)
-		insertAtFront(&stack->a, ft_intdup(ft_atoi(av[i])));
-	return (FUNCTION_SUCCESS);
+	/* Create a new Linked List node */
+	if (!(newNode = (t_list *)malloc(sizeof(t_list))))
+		return ;
+	newNode->content = data;
+	/* Next pointer of new node will point to head node of linked list  */
+	newNode->next = *list;
+	/* make new node as new head of linked list */
+	*list = newNode;
 }

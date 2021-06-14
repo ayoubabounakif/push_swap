@@ -1,4 +1,4 @@
-FLAGS = -Wall -Wextra -Werror
+FLAGS = 
 
 LIBNAME = libft.a
 
@@ -9,6 +9,7 @@ EXEC = push_swap
 SRC = main.c \
 srcs/init_stack.c srcs/stack_desctructor.c \
 utils/check_for_dups.c utils/syntax_checker.c utils/is_sorted.c \
+srcs/__swap__.c srcs/__rotation__.c srcs/__push__.c \
 
 all: $(NAME)
 

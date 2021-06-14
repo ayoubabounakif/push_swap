@@ -36,6 +36,14 @@ t_stack	*empty_stack_create(void);
 int     store_data(int ac, char *av[], t_stack *stack);
 
 /*
+** methods (actions)
+*/
+void    __swap__(t_stack *stack, char *key);
+void    __rotation__(t_stack *stack, char *key);
+void	__push__(t_stack *stack, char *key);
+
+
+/*
 **  utils
 */
 int		syntax_checker(char *arg);

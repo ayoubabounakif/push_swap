@@ -12,6 +12,26 @@
 
 # include "includes/push_swap.h"
 
+void	exec_actions(t_stack *stack, char *key)
+{
+	if (key[0] == 's')
+		__swap__(stack, key);
+	else if (key[0] == 'r')
+		__rotation__(stack, key);
+	else if (key[0] == 'p')
+		__push__(stack, key);
+	return ;
+}
+
+void	sortStack(t_stack *stack, int ac)
+{
+	if (ac == 4)
+	/* 	exec_actions(stack, "sa");
+		exec_actions(stack, "ra");
+		exec_actions(stack, "pa"); */
+	return ;
+}
+
 int		main(int ac, char *av[])
 {	
 	int			i;
@@ -46,10 +66,7 @@ int		main(int ac, char *av[])
 			return (EXIT_FAILURE);
 		}
 
-		// Printing my list
-		ft_lstprint_int(stack->a);
 
-		// MAIN PROGRAM :
 		// TO-DO : Check if what's given is already sorted.
 		if (isSorted(stack->a) == EVERYTHING_SORTED)
 		{
@@ -59,16 +76,12 @@ int		main(int ac, char *av[])
 			return (EXIT_SUCCESS);
 		}
 
-		// TO-DO : Make methods of push_swap
-	
+
+		// MAIN PROGRAM : Sort the godamn stack
+		sortStack(stack, ac);
 		
 		// Stack destructor
 		stack_destructor(stack, free);
-	}
-	while (stack->a)
-	{
-		printf("%d\n", *(int *)stack->a->content);
-		stack->a = stack->a->next;
 	}
 	return (EXIT_SUCCESS);
 }

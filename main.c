@@ -23,12 +23,44 @@ void	exec_actions(t_stack *stack, char *key)
 	return ;
 }
 
+void	__sort3__(t_stack *stack)
+{
+	t_list	*lst;
+
+	lst = stack->a;
+	if (*(int *)lst->content > *(int *)lst->next->content)
+	{
+		if (*(int *)lst->next->content < *(int *)lst->next->next->content)
+		{
+			if (*(int *)lst->next->next->content > *(int *)lst->content)
+				exec_actions(stack, "sa");
+			else if (*(int *)lst->next->next->content < *(int *)lst->content)
+				exec_actions(stack, "ra");
+		}
+		else
+		{
+			exec_actions(stack, "sa");
+			exec_actions(stack, "rra");
+		}
+	}
+	else
+	{
+		if (*(int *)lst->content < *(int *)lst->next->next->content)
+		{
+			// printf("IM HERE\n");
+			// fflush(stdout);
+			exec_actions(stack, "sa");
+			exec_actions(stack, "ra");
+		}
+		else
+			exec_actions(stack, "rra");
+	}
+}
+
 void	sortStack(t_stack *stack, int ac)
 {
 	if (ac == 4)
-	/* 	exec_actions(stack, "sa");
-		exec_actions(stack, "ra");
-		exec_actions(stack, "pa"); */
+		__sort3__(stack);
 	return ;
 }
 
@@ -68,17 +100,24 @@ int		main(int ac, char *av[])
 
 
 		// TO-DO : Check if what's given is already sorted.
+
+		// FIX THIS FUNCTION
 		if (isSorted(stack->a) == EVERYTHING_SORTED)
 		{
+			ft_lstprint_int(stack->a);
 			printf("Supposedly Everything's sorted\n");
 			fflush(stdout);
 			stack_destructor(stack, free);
 			return (EXIT_SUCCESS);
 		}
 
+		
+		printf("we should sort\n");
+		fflush(stdout);
+		ft_lstprint_int(stack->a);
 
 		// MAIN PROGRAM : Sort the godamn stack
-		sortStack(stack, ac);
+		// sortStack(stack, ac);
 		
 		// Stack destructor
 		stack_destructor(stack, free);

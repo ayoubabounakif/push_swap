@@ -21,7 +21,7 @@
 # define FUNCTION_ERROR 0
 # define FUNCTION_SUCCESS 1
 # define DUPLICATE_FOUND 1001
-# define EVERYTHING_SORTED 1002
+# define EVERYTHING_SORTED 0
 
 typedef struct	s_stack
 {

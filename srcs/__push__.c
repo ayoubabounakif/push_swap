@@ -12,7 +12,7 @@
 
 # include "../includes/push_swap.h"
 
-static void	deleteHead(t_list **head_ref)
+static void	_deleteHead(t_list **head_ref)
 {
 	t_list	*temp;
 
@@ -42,8 +42,9 @@ void		__push__(t_stack *stack, char *key)
 {
 	if (key[1] == 'a')
 	{
+		ft_putstr_fd("pa\n", STDOUT_FILENO);
 		_pushOtherStack(&stack->a, &stack->b);
-		deleteHead(&stack->a);
+		_deleteHead(&stack->a);
 
 		printf("deleting head from stack->a\n");
 		fflush(stdout);
@@ -51,8 +52,9 @@ void		__push__(t_stack *stack, char *key)
 	}
 	if (key[1] == 'b')
 	{
+		ft_putstr_fd("pb\n", STDOUT_FILENO);
 		_pushOtherStack(&stack->b, &stack->a);
-		deleteHead(&stack->b);
+		_deleteHead(&stack->b);
 
 		printf("deleting head from stack->b\n");
 		fflush(stdout);

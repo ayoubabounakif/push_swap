@@ -62,16 +62,66 @@ static void	_rotateList(t_list **head_ref, int k)
     fflush(stdout);
 }
 
-void		__rotation__(t_stack *stack, char *key)
+static int	_countList(t_list *head)
+{
+	t_list	*content;
+	int		i;
+
+	content = head;
+	i = 0;
+	while (content != NULL)
+	{
+		i++;
+		content = content->next;
+	}
+	return (i);
+}
+
+static void	_reverseRotation(t_stack *stack, char *key)
+{
+	if (key[2] == 'a')
+	{
+		ft_putstr_fd("rra\n", STDOUT_FILENO);
+		_rotateList(&stack->a, _countList(stack->a) - 1);
+	}
+	else if (key[2] == 'b')
+	{
+		ft_putstr_fd("rrb\n", STDOUT_FILENO);
+		_rotateList(&stack->b, _countList(stack->b) - 1);
+	}
+	else if (key[2] == 'r')
+	{
+		ft_putstr_fd("rrr\n", STDOUT_FILENO);
+		_rotateList(&stack->a, _countList(stack->a) - 1);
+		_rotateList(&stack->b, _countList(stack->b) - 1);
+	}
+}
+
+static void	_basicRotation(t_stack *stack, char *key)
 {
 	if (key[1] == 'a')
+	{
+		ft_putstr_fd("ra\n", STDOUT_FILENO);
 		_rotateList(&stack->a, 1);
+	}
 	else if (key[1] == 'b')
+	{
+		ft_putstr_fd("rb\n", STDOUT_FILENO);
 		_rotateList(&stack->b, 1);
+	}
 	else if (key[1] == 'r')
 	{
+		ft_putstr_fd("rr\n", STDOUT_FILENO);
 		_rotateList(&stack->a, 1);
 		_rotateList(&stack->b, 1);
 	}
+}
+
+void		__rotation__(t_stack *stack, char *key)
+{
+    if (ft_strlen(key) == 2)
+		_basicRotation(stack, key);
+    if (ft_strlen(key) == 3)
+		_reverseRotation(stack, key);
 	return ;
 }

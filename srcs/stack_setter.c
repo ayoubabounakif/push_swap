@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   stack_setter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 16:05:35 by aabounak          #+#    #+#             */
-/*   Updated: 2021/06/12 16:05:54 by aabounak         ###   ########.fr       */
+/*   Created: 2021/06/15 14:22:16 by aabounak          #+#    #+#             */
+/*   Updated: 2021/06/15 14:22:26 by aabounak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
-int	isSorted(t_list *head)
+int		store_data(int ac, char *av[], t_stack *stack)
 {
-	t_list	*list;
+	int		i;
 
-	if (head == NULL)
-		return (EVERYTHING_SORTED);
-	list = head;
-	while (list->next != NULL)
-	{
-		if (*(int *)list->content > *(int *)list->next->content)
-			return (NOT_SORTED);
-		list = list->next;
-	}
-	return (EVERYTHING_SORTED);
+	i = 0;
+	while (++i < ac)
+		ft_lstadd_back(&stack->a, ft_lstnew((void *)ft_intdup(ft_atoi(av[i]))));
+	return (FUNCTION_SUCCESS);
 }

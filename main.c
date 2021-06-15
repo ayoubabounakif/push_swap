@@ -12,55 +12,42 @@
 
 # include "includes/push_swap.h"
 
-void	exec_actions(t_stack *stack, char *key)
+void	*_findSmallestNode(t_list *lst)
 {
-	if (key[0] == 's')
-		__swap__(stack, key);
-	else if (key[0] == 'r')
-		__rotation__(stack, key);
-	else if (key[0] == 'p')
-		__push__(stack, key);
-	return ;
+	t_list	*tmp;
+	void	*min;
+
+	tmp = lst;
+	min = tmp->content;
+	while (tmp != NULL)
+	{
+		if (*(int *)min > *(int *)tmp->content)
+			min = tmp->content;
+		tmp = tmp->next;
+	}
+	return (min);
 }
 
-void	__sort3__(t_stack *stack)
+void	__sort5__(t_stack *stack)
 {
 	t_list	*lst;
+	void	*minValue;
 
-	lst = stack->a;
-	if (*(int *)lst->content > *(int *)lst->next->content)
-	{
-		if (*(int *)lst->next->content < *(int *)lst->next->next->content)
-		{
-			if (*(int *)lst->next->next->content > *(int *)lst->content)
-				exec_actions(stack, "sa");
-			else if (*(int *)lst->next->next->content < *(int *)lst->content)
-				exec_actions(stack, "ra");
-		}
-		else
-		{
-			exec_actions(stack, "sa");
-			exec_actions(stack, "rra");
-		}
-	}
-	else
-	{
-		if (*(int *)lst->content < *(int *)lst->next->next->content)
-		{
-			// printf("IM HERE\n");
-			// fflush(stdout);
-			exec_actions(stack, "sa");
-			exec_actions(stack, "ra");
-		}
-		else
-			exec_actions(stack, "rra");
-	}
+	minValue = _findSmallestNode(stack->a);
+	printf("%d\n-----\n", *(int *)minValue);
+
+	__push__(stack, "pa");
+	printf("-----\n--- stack b ---\n");
+	ft_lstprint_int(stack->b);
+	printf("-----\n--- stack a ---\n");
+	ft_lstprint_int(stack->a);
 }
-
 void	sortStack(t_stack *stack, int ac)
 {
 	if (ac == 4)
 		__sort3__(stack);
+	if (ac == 6)
+		__sort5__(stack);
 	return ;
 }
 
@@ -98,26 +85,28 @@ int		main(int ac, char *av[])
 			return (EXIT_FAILURE);
 		}
 
-
 		// TO-DO : Check if what's given is already sorted.
 
 		// FIX THIS FUNCTION
 		if (isSorted(stack->a) == EVERYTHING_SORTED)
 		{
-			ft_lstprint_int(stack->a);
 			printf("Supposedly Everything's sorted\n");
 			fflush(stdout);
 			stack_destructor(stack, free);
 			return (EXIT_SUCCESS);
 		}
 
-		
-		printf("we should sort\n");
-		fflush(stdout);
-		ft_lstprint_int(stack->a);
+		// printf("list before sort\n");
+		// fflush(stdout);
+		// ft_lstprint_int(stack->a);
+		// // MAIN PROGRAM : Sort the godamn stack
+		// printf("\ngonna start execution actions zzzzzz\n\n");
 
-		// MAIN PROGRAM : Sort the godamn stack
-		// sortStack(stack, ac);
+		sortStack(stack, ac);
+
+		// printf("\n");
+		// printf("list after sort\n");
+		// ft_lstprint_int(stack->a);
 		
 		// Stack destructor
 		stack_destructor(stack, free);

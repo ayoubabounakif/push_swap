@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 16:05:35 by aabounak          #+#    #+#             */
-/*   Updated: 2021/06/12 16:05:54 by aabounak         ###   ########.fr       */
+/*   Created: 2021/06/11 19:34:55 by aabounak          #+#    #+#             */
+/*   Updated: 2021/06/11 19:35:13 by aabounak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
-int	isSorted(t_list *head)
+t_stack	*empty_stack_create(void)
 {
-	t_list	*list;
+	t_stack *st;
 
-	if (head == NULL)
-		return (EVERYTHING_SORTED);
-	list = head;
-	while (list->next != NULL)
-	{
-		if (*(int *)list->content > *(int *)list->next->content)
-			return (NOT_SORTED);
-		list = list->next;
-	}
-	return (EVERYTHING_SORTED);
+	if (!(st = (t_stack *)malloc(sizeof(t_stack))))
+		return (FUNCTION_ERROR);
+	st->a = NULL;
+	st->b = NULL;
+	return (st);
 }

@@ -32,9 +32,6 @@ static void	_pushOtherStack(t_list **src, t_list **dst)
 		return ;
 	temp = *src;
 
-	printf("executing a push from src to dst\n");
-	fflush(stdout);
-
 	ft_lstadd_back(dst, ft_lstnew(temp->content));
 }
 
@@ -42,6 +39,7 @@ void		__push__(t_stack *stack, char *key)
 {
 	if (key[1] == 'a')
 	{
+		printf("executing a push from a to b\n");
 		ft_putstr_fd("pa\n", STDOUT_FILENO);
 		_pushOtherStack(&stack->a, &stack->b);
 		_deleteHead(&stack->a);
@@ -52,6 +50,7 @@ void		__push__(t_stack *stack, char *key)
 	}
 	if (key[1] == 'b')
 	{
+		printf("executing a push from b to a\n");
 		ft_putstr_fd("pb\n", STDOUT_FILENO);
 		_pushOtherStack(&stack->b, &stack->a);
 		_deleteHead(&stack->b);

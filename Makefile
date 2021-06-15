@@ -7,9 +7,10 @@ NAME = push_swap
 EXEC = push_swap
 
 SRC = main.c \
-srcs/init_stack.c srcs/stack_desctructor.c \
-utils/check_for_dups.c utils/syntax_checker.c utils/is_sorted.c \
+srcs/stack_constructor.c srcs/stack_setter.c srcs/stack_desctructor.c \
 srcs/__swap__.c srcs/__rotation__.c srcs/__push__.c \
+srcs/__sort3__.c \
+utils/check_for_dups.c utils/syntax_checker.c utils/is_sorted.c utils/exec_actions.c \
 
 all: $(NAME)
 

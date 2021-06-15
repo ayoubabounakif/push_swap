@@ -14,18 +14,44 @@
 
 void	*_findSmallestNode(t_list *lst)
 {
-	t_list	*tmp;
 	void	*min;
 
-	tmp = lst;
-	min = tmp->content;
-	while (tmp != NULL)
+	min = lst->content;
+	while (lst != NULL)
 	{
-		if (*(int *)min > *(int *)tmp->content)
-			min = tmp->content;
-		tmp = tmp->next;
+		if (*(int *)min > *(int *)lst->content)
+			min = lst->content;
+		lst = lst->next;
 	}
 	return (min);
+}
+
+int		_findPosition(t_list *lst, void *value)
+{
+	int		i;
+
+	i = 1;
+	while (lst != NULL)
+	{
+		if (*(int *)lst->content == *(int *)value)
+			return (i);
+		i++;
+		lst = lst->next;
+	}
+	return (EXIT_SUCCESS);
+}
+
+void	_pushMinToB(t_stack *stack, void *value)
+{
+	t_list	*tmp_a;
+	int		pos;
+	int		size;
+
+	tmp_a = stack->a;
+	size = ft_lstsize(tmp_a);
+	size = _findPosition(tmp_a, value);
+	
+	printf("stack a size : %d\n", size);
 }
 
 void	__sort5__(t_stack *stack)
@@ -35,12 +61,12 @@ void	__sort5__(t_stack *stack)
 
 	minValue = _findSmallestNode(stack->a);
 	printf("%d\n-----\n", *(int *)minValue);
-
-	__push__(stack, "pa");
-	printf("-----\n--- stack b ---\n");
-	ft_lstprint_int(stack->b);
-	printf("-----\n--- stack a ---\n");
-	ft_lstprint_int(stack->a);
+	_pushMinToB(stack, minValue);
+	// exec_actions(stack, "pa");
+	// printf("-----\n--- stack b ---\n");
+	// ft_lstprint_int(stack->b);
+	// printf("-----\n--- stack a ---\n");
+	// ft_lstprint_int(stack->a);
 }
 void	sortStack(t_stack *stack, int ac)
 {

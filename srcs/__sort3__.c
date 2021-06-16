@@ -17,29 +17,33 @@ void	__sort3__(t_stack *stack)
 	t_list	*lst;
 
 	lst = stack->a;
+	if (isSorted(lst) == EVERYTHING_SORTED)
+		return ;
 	if (*(int *)lst->content > *(int *)lst->next->content)
 	{
 		if (*(int *)lst->next->content < *(int *)lst->next->next->content)
 		{
 			if (*(int *)lst->next->next->content > *(int *)lst->content)
-				exec_actions(stack, "sa");
+				execActionsB(stack, "sa");
 			else if (*(int *)lst->next->next->content < *(int *)lst->content)
-				exec_actions(stack, "ra");
+				execActionsB(stack, "ra");
 		}
 		else
 		{
-			exec_actions(stack, "sa");
-			exec_actions(stack, "rra");
+			execActionsB(stack, "sa");
+			execActionsB(stack, "rra");
 		}
 	}
 	else
 	{
 		if (*(int *)lst->content < *(int *)lst->next->next->content)
 		{
-			exec_actions(stack, "sa");
-			exec_actions(stack, "ra");
+			execActionsB(stack, "sa");
+			execActionsB(stack, "ra");
 		}
 		else
-			exec_actions(stack, "rra");
+			execActionsB(stack, "rra");
 	}
+	// List print
+	ft_lstprint_int(stack->a);
 }

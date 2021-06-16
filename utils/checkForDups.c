@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_for_dups.c                                   :+:      :+:    :+:   */
+/*   checkForDups.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 # include "../includes/push_swap.h"
 
-int		check_for_dups(t_list *head)
+int		checkForDups(t_list *head)
 {
     int count = 0;
     t_list	*temp;

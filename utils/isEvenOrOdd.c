@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   isEvenOrOdd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 19:34:55 by aabounak          #+#    #+#             */
-/*   Updated: 2021/06/11 19:35:13 by aabounak         ###   ########.fr       */
+/*   Created: 2021/06/16 12:09:03 by aabounak          #+#    #+#             */
+/*   Updated: 2021/06/16 12:09:11 by aabounak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
-t_stack	*empty_stack_create(void)
+int		isEvenOrOdd(int n)
 {
-	t_stack *st;
-
-	if (!(st = (t_stack *)malloc(sizeof(t_stack))))
-		return (FUNCTION_ERROR);
-	st->a = NULL;
-	st->b = NULL;
-	return (st);
+	if (n % 2 == 0)
+		return (EVEN);
+	else
+		return (ODD);
+	return (EXIT_SUCCESS);
 }

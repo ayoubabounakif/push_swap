@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+# include "../../includes/push_swap.h"
 
-static void	_swapList(t_list **lst)
+static void	swapList(t_list **lst)
 {
 	printf("executing swap\n");
 	fflush(stdout);
@@ -44,17 +44,17 @@ void	__swap__(t_stack *stack, char *key)
 	if (key[1] == 'a')
 	{
 		ft_putstr_fd("sa\n", STDOUT_FILENO);
-		_swapList(&tempA);
+		swapList(&tempA);
 	}
 	else if (key[1] == 'b')
 	{
 		ft_putstr_fd("sb\n", STDOUT_FILENO);
-		_swapList(&tempB);
+		swapList(&tempB);
 	}
 	else if (key[1] == 's')
 	{
 		ft_putstr_fd("ss\n", STDOUT_FILENO);
-		_swapList(&tempA);
-		_swapList(&tempB);
+		swapList(&tempA);
+		swapList(&tempB);
 	}
 }

@@ -12,68 +12,14 @@
 
 # include "includes/push_swap.h"
 
-void	*_findSmallestNode(t_list *lst)
-{
-	void	*min;
-
-	min = lst->content;
-	while (lst != NULL)
-	{
-		if (*(int *)min > *(int *)lst->content)
-			min = lst->content;
-		lst = lst->next;
-	}
-	return (min);
-}
-
-int		_findPosition(t_list *lst, void *value)
-{
-	int		i;
-
-	i = 1;
-	while (lst != NULL)
-	{
-		if (*(int *)lst->content == *(int *)value)
-			return (i);
-		i++;
-		lst = lst->next;
-	}
-	return (EXIT_SUCCESS);
-}
-
-void	_pushMinToB(t_stack *stack, void *value)
-{
-	t_list	*tmp_a;
-	int		pos;
-	int		size;
-
-	tmp_a = stack->a;
-	size = ft_lstsize(tmp_a);
-	size = _findPosition(tmp_a, value);
-	
-	printf("stack a size : %d\n", size);
-}
-
-void	__sort5__(t_stack *stack)
-{
-	t_list	*lst;
-	void	*minValue;
-
-	minValue = _findSmallestNode(stack->a);
-	printf("%d\n-----\n", *(int *)minValue);
-	_pushMinToB(stack, minValue);
-	// exec_actions(stack, "pa");
-	// printf("-----\n--- stack b ---\n");
-	// ft_lstprint_int(stack->b);
-	// printf("-----\n--- stack a ---\n");
-	// ft_lstprint_int(stack->a);
-}
 void	sortStack(t_stack *stack, int ac)
 {
 	if (ac == 4)
 		__sort3__(stack);
 	if (ac == 6)
 		__sort5__(stack);
+	else
+		__sortAll__(stack);
 	return ;
 }
 
@@ -90,22 +36,22 @@ int		main(int ac, char *av[])
 		while (++i < ac)
 		{
 			// Syntax handling
-			if (!syntax_checker(av[i]))
+			if (!syntaxChecker(av[i]))
 			{
 				ft_putstr_fd("Error\n", STDERR_FILENO);
 				return (EXIT_FAILURE);
 			}
 		}
 		// Constructor
-		if (!(stack = empty_stack_create()))
+		if (!(stack = StackConstructor()))
 			return (EXIT_FAILURE);
 
 		// Setter
-		if (!store_data(ac, av, stack))
+		if (!StackSetter(ac, av, stack))
 			return (EXIT_FAILURE);
 		
 		// Duplicates handling
-		if (check_for_dups(stack->a) == DUPLICATE_FOUND)
+		if (checkForDups(stack->a) == DUPLICATE_FOUND)
 		{
 			ft_putstr_fd("Error\n", STDERR_FILENO);
 			return (EXIT_FAILURE);
@@ -118,7 +64,7 @@ int		main(int ac, char *av[])
 		{
 			printf("Supposedly Everything's sorted\n");
 			fflush(stdout);
-			stack_destructor(stack, free);
+			StackDestructor(stack, free);
 			return (EXIT_SUCCESS);
 		}
 
@@ -135,7 +81,7 @@ int		main(int ac, char *av[])
 		// ft_lstprint_int(stack->a);
 		
 		// Stack destructor
-		stack_destructor(stack, free);
+		StackDestructor(stack, free);
 	}
 	return (EXIT_SUCCESS);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   syntax_checker.c                                   :+:      :+:    :+:   */
+/*   syntaxChecker.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 # include "../includes/push_swap.h"
 
-int		syntax_checker(char *arg)
+int		syntaxChecker(char *arg)
 {
 	int		tmp;
 	int		index;

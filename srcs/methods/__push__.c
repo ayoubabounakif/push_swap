@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   __push__.c                                         :+:      :+:    :+:   */
+/*   __pushBack__.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+# include "../../includes/push_swap.h"
 
-static void	_deleteHead(t_list **head_ref)
+static void	deleteHead(t_list **head_ref)
 {
 	t_list	*temp;
 
@@ -24,7 +24,47 @@ static void	_deleteHead(t_list **head_ref)
 	return ;
 }
 
-static void	_pushOtherStack(t_list **src, t_list **dst)
+static void	pushFrontOtherStack(t_list **src, t_list **dst)
+{
+	t_list	*temp;
+
+	if (*src == NULL)
+		return ;
+	temp = *src;
+
+	ft_lstadd_front(dst, ft_lstnew(temp->content));
+}
+
+void		__pushFront__(t_stack *stack, char *key)
+{
+	if (key[1] == 'a')
+	{
+		printf("executing a push from a to b\n");
+		ft_putstr_fd("pa\n", STDOUT_FILENO);
+		pushFrontOtherStack(&stack->a, &stack->b);
+		deleteHead(&stack->a);
+
+		printf("deleting head from stack->a\n");
+		fflush(stdout);
+
+	}
+	if (key[1] == 'b')
+	{
+		printf("executing a push from b to a\n");
+		ft_putstr_fd("pb\n", STDOUT_FILENO);
+		pushFrontOtherStack(&stack->b, &stack->a);
+		deleteHead(&stack->b);
+
+		printf("deleting head from stack->b\n");
+		fflush(stdout);
+		
+	}
+
+	printf("push complete!\n");
+	fflush(stdout);
+}
+
+static void	pushBackOtherStack(t_list **src, t_list **dst)
 {
 	t_list	*temp;
 
@@ -35,27 +75,27 @@ static void	_pushOtherStack(t_list **src, t_list **dst)
 	ft_lstadd_back(dst, ft_lstnew(temp->content));
 }
 
-void		__push__(t_stack *stack, char *key)
+void		__pushBack__(t_stack *stack, char *key)
 {
 	if (key[1] == 'a')
 	{
-		printf("executing a push from a to b\n");
+		printf("executing a push from b to a\n");
 		ft_putstr_fd("pa\n", STDOUT_FILENO);
-		_pushOtherStack(&stack->a, &stack->b);
-		_deleteHead(&stack->a);
+		pushBackOtherStack(&stack->b, &stack->a);
+		deleteHead(&stack->b);
 
-		printf("deleting head from stack->a\n");
+		printf("deleting head from stack->b\n");
 		fflush(stdout);
 
 	}
 	if (key[1] == 'b')
 	{
-		printf("executing a push from b to a\n");
+		printf("executing a push from a to b\n");
 		ft_putstr_fd("pb\n", STDOUT_FILENO);
-		_pushOtherStack(&stack->b, &stack->a);
-		_deleteHead(&stack->b);
+		pushBackOtherStack(&stack->a, &stack->b);
+		deleteHead(&stack->a);
 
-		printf("deleting head from stack->b\n");
+		printf("deleting head from stack->a\n");
 		fflush(stdout);
 		
 	}

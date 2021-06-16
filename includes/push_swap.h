@@ -24,6 +24,9 @@
 # define EVERYTHING_SORTED 1002
 # define NOT_SORTED 1003
 
+# define EVEN 0
+# define ODD 1
+
 typedef struct	s_stack
 {
     t_list	*a;
@@ -33,38 +36,48 @@ typedef struct	s_stack
 /*
 **  stack constructor
 */
-t_stack	*empty_stack_create(void);
+t_stack	*StackConstructor(void);
 
 /*
 **  stack setter
 **/
-int     store_data(int ac, char *av[], t_stack *stack);
+int     StackSetter(int ac, char *av[], t_stack *stack);
 
 /*
 ** methods (actions)
 */
 void    __swap__(t_stack *stack, char *key);
 void    __rotation__(t_stack *stack, char *key);
-void	__push__(t_stack *stack, char *key);
-
+void	__pushBack__(t_stack *stack, char *key);
+void	__pushFront__(t_stack *stack, char *key);
 
 /*
 ** main functions
 */
 void	__sort3__(t_stack *stack);
 void	__sort5__(t_stack *stack);
+void	__sortAll__(t_stack *stack);
 
 /*
 **  utils
 */
-int		syntax_checker(char *arg);
-int		check_for_dups(t_list *head);
+int		syntaxChecker(char *arg);
+int		checkForDups(t_list *head);
 int		isSorted(t_list *head);
-void	exec_actions(t_stack *stack, char *key);
+int		isEvenOrOdd(int n);
+
+void	*findSmallestNode(t_list *lst);
+void	*findLargestNode(t_list *lst);
+int		findPosition(t_list *lst, void *value);
+void	pushMinToB(t_stack *stack, void *value);
+void	pushMaxToA(t_stack *stack, void *value);
+
+void	execActionsB(t_stack *stack, char *key);
+void	execActionsF(t_stack *stack, char *key);
 
 /*
 **  stack destructor
 */
-void    stack_destructor(t_stack *stack, void (*del)(void *));
+void    StackDestructor(t_stack *stack, void (*del)(void *));
 
 #endif

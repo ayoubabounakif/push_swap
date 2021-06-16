@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   findLargestNode.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 16:05:35 by aabounak          #+#    #+#             */
-/*   Updated: 2021/06/12 16:05:54 by aabounak         ###   ########.fr       */
+/*   Created: 2021/06/16 16:52:28 by aabounak          #+#    #+#             */
+/*   Updated: 2021/06/16 16:54:28 by aabounak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
-int	isSorted(t_list *head)
+void	*findLargestNode(t_list *lst)
 {
-	t_list	*list;
+	void	*max;
 
-	if (head == NULL)
-		return (EVERYTHING_SORTED);
-	list = head;
-	while (list->next != NULL)
+	max = lst->content;
+	while (lst != NULL)
 	{
-		if (*(int *)list->content > *(int *)list->next->content)
-			return (NOT_SORTED);
-		list = list->next;
+		if (*(int *)max < *(int *)lst->content)
+			max = lst->content;
+		lst = lst->content;
 	}
-	return (EVERYTHING_SORTED);
+	return (max);
 }

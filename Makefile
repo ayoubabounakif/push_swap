@@ -7,10 +7,11 @@ NAME = push_swap
 EXEC = push_swap
 
 SRC = main.c \
-srcs/stack_constructor.c srcs/stack_setter.c srcs/stack_desctructor.c \
-srcs/__swap__.c srcs/__rotation__.c srcs/__push__.c \
-srcs/__sort3__.c \
-utils/check_for_dups.c utils/syntax_checker.c utils/is_sorted.c utils/exec_actions.c \
+srcs/subroutines/StackConstructor.c srcs/subroutines/StackSetter.c srcs/subroutines/stackDesctructor.c \
+srcs/methods/__swap__.c srcs/methods/__rotation__.c srcs/methods/__push__.c \
+srcs/__sort3__.c srcs/__sort5__.c srcs/__sortAll__.c \
+utils/checkForDups.c utils/syntaxChecker.c utils/isSorted.c utils/execActions.c \
+utils/isEvenOrOdd.c utils/findSmallestNode.c utils/findLargestNode.c utils/findPosition.c utils/pushMinToB.c utils/pushMaxToA.c \
 
 all: $(NAME)
 

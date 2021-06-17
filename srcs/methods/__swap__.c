@@ -14,9 +14,6 @@
 
 static void	swapList(t_list **lst)
 {
-	printf("executing swap\n");
-	fflush(stdout);
-
 	t_list	*tmpA;
 	void	*temporaryVar;
 
@@ -29,9 +26,6 @@ static void	swapList(t_list **lst)
 		tmpA->content = tmpA->next->content;
 		tmpA->next->content = temporaryVar;
 	}
-
-	printf("list got swapped\n");
-	fflush(stdout);
 }
 
 void	__swap__(t_stack *stack, char *key)

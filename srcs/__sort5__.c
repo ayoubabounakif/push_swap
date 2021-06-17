@@ -18,18 +18,12 @@ void	__sort5__(t_stack *stack)
 	void	*minValue;
 
 	minValue = findSmallestNode(stack->a);
-	// printf("----\n1st min value : %d\n-----\n", *(int *)minValue);
 	pushMinToB(stack, minValue);
 	minValue = findSmallestNode(stack->a);
-	// printf("----\n2nd min value : %d\n-----\n", *(int *)minValue);
 	pushMinToB(stack, minValue);
 	__sort3__(stack);
 	if (*(int *)stack->b->content < *(int *)stack->b->next->content)
 		execActionsF(stack, "sb");
-	printf("-----\n--- stack b ---\n");
-	ft_lstprint_int(stack->b);
-	execActionsF(stack, "pb");
-	execActionsF(stack, "pb");
-	printf("-----\n--- stack a ---\n");
-	ft_lstprint_int(stack->a);
+	execActionsF(stack, "pa");
+	execActionsF(stack, "pa");
 }

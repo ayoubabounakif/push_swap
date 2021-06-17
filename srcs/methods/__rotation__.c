@@ -14,9 +14,6 @@
 
 static void	rotateList(t_list **head_ref, int k)
 {
-    printf("starting rotation!\n");
-    fflush(stdout);
-
     if (k == 0)
         return;
  
@@ -57,12 +54,9 @@ static void	rotateList(t_list **head_ref, int k)
     // change next of kth node to NULL
     // next of 40 is now NULL
     kthNode->next = NULL;
-
-    printf("finished rotation\n");
-    fflush(stdout);
 }
 
-static int	_countList(t_list *head)
+static int	countList(t_list *head)
 {
 	t_list	*content;
 	int		i;
@@ -83,18 +77,18 @@ static void	reverseRotation(t_stack *stack, char *key)
 	if (key[2] == 'a')
 	{
 		ft_putstr_fd("rra\n", STDOUT_FILENO);
-		rotateList(&stack->a, _countList(stack->a) - 1);
+		rotateList(&stack->a, countList(stack->a) - 1);
 	}
 	else if (key[2] == 'b')
 	{
 		ft_putstr_fd("rrb\n", STDOUT_FILENO);
-		rotateList(&stack->b, _countList(stack->b) - 1);
+		rotateList(&stack->b, countList(stack->b) - 1);
 	}
 	else if (key[2] == 'r')
 	{
 		ft_putstr_fd("rrr\n", STDOUT_FILENO);
-		rotateList(&stack->a, _countList(stack->a) - 1);
-		rotateList(&stack->b, _countList(stack->b) - 1);
+		rotateList(&stack->a, countList(stack->a) - 1);
+		rotateList(&stack->b, countList(stack->b) - 1);
 	}
 }
 

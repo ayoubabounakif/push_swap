@@ -15,36 +15,40 @@
 void	__sortAll__(t_stack *stack)
 {
 	t_list	*lstA;
-	t_list	*lstB;
+	t_list	*betadine;
 	void	*minValue;
-	void	*maxValue;
 	int		range;
 
 	minValue = findSmallestNode(stack->a);
-	maxValue = findLargestNode(stack->a);
 	range = *(int *)minValue;
+	// printf("--- operations ---\n");
 	while (stack->a != NULL)
 	{
 		lstA = stack->a;
 		while (lstA != NULL)
 		{
+			betadine = lstA->next;
 			if (*(int *)lstA->content <= range)
 				pushMinToB(stack, lstA->content);
-			lstA = lstA->next;
+			lstA = betadine;
 		}
 		range += 30;
 	}
 
 			/* 	This piece of code will loop through stack B
 				and search for the largest node and push it to stack A */
+	// printf("--- stack b ---\n");
+	// ft_lstprint_int(stack->b);
+	// printf("--- operations ---\n");
+
+	t_list	*lstB;
+	void	*maxValue;
+
 	lstB = stack->b;
 	while (lstB != NULL)
 	{
 		maxValue = findLargestNode(stack->b);
 		pushMaxToA(stack, maxValue);
-		lstB = lstB->next;
+		lstB = stack->b;
 	}
-
-	printf("----- stack a ----\n");
-	ft_lstprint_int(stack->a);
 }

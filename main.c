@@ -16,9 +16,9 @@ void	sortStack(t_stack *stack, int ac)
 {
 	if (ac == 4)
 		__sort3__(stack);
-	if (ac == 6)
+	else if (ac == 6)
 		__sort5__(stack);
-	else
+	else if (ac == 8)
 		__sortAll__(stack);
 	return ;
 }
@@ -62,15 +62,16 @@ int		main(int ac, char *av[])
 		// FIX THIS FUNCTION
 		if (isSorted(stack->a) == EVERYTHING_SORTED)
 		{
-			printf("Supposedly Everything's sorted\n");
-			fflush(stdout);
 			StackDestructor(stack, free);
 			return (EXIT_SUCCESS);
 		}
 
-
 		sortStack(stack, ac);
 
+		printf("---- stack a sorted ----\n");
+		ft_lstprint_int(stack->a);
+		printf("---- stack b sorted ----\n");
+		ft_lstprint_int(stack->b);
 		
 		// Stack destructor
 		StackDestructor(stack, free);

@@ -25,8 +25,10 @@ void	__sort3__(t_stack *stack)
 		{
 			if (*(int *)lst->next->next->content > *(int *)lst->content)
 				execActionsB(stack, "sa");
+
 			else if (*(int *)lst->next->next->content < *(int *)lst->content)
 				execActionsB(stack, "ra");
+
 		}
 		else
 		{
@@ -44,6 +46,4 @@ void	__sort3__(t_stack *stack)
 		else
 			execActionsB(stack, "rra");
 	}
-	// List print
-	ft_lstprint_int(stack->a);
 }

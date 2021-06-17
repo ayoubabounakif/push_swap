@@ -16,9 +16,11 @@ void	sortStack(t_stack *stack, int ac)
 {
 	if (ac == 4)
 		__sort3__(stack);
+	else if (ac == 5)
+		__sort4__(stack);
 	else if (ac == 6)
 		__sort5__(stack);
-	else if (ac == 8)
+	else if (ac > 6)
 		__sortAll__(stack);
 	return ;
 }
@@ -67,11 +69,6 @@ int		main(int ac, char *av[])
 		}
 
 		sortStack(stack, ac);
-
-		printf("---- stack a sorted ----\n");
-		ft_lstprint_int(stack->a);
-		printf("---- stack b sorted ----\n");
-		ft_lstprint_int(stack->b);
 		
 		// Stack destructor
 		StackDestructor(stack, free);

@@ -12,24 +12,13 @@
 
 # include "../includes/push_swap.h"
 
-void	execActionsF(t_stack *stack, char *key)
+void	execActions(t_stack *stack, char *key)
 {
 	if (key[0] == 's')
 		__swap__(stack, key);
 	else if (key[0] == 'r')
 		__rotation__(stack, key);
 	else if (key[0] == 'p')
-		__pushFront__(stack, key);
-	return ;
-}
-
-void	execActionsB(t_stack *stack, char *key)
-{
-	if (key[0] == 's')
-		__swap__(stack, key);
-	else if (key[0] == 'r')
-		__rotation__(stack, key);
-	else if (key[0] == 'p')
-		__pushBack__(stack, key);
+		__push__(stack, key);
 	return ;
 }

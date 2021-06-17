@@ -24,26 +24,26 @@ void	__sort3__(t_stack *stack)
 		if (*(int *)lst->next->content < *(int *)lst->next->next->content)
 		{
 			if (*(int *)lst->next->next->content > *(int *)lst->content)
-				execActionsB(stack, "sa");
+				execActions(stack, "sa");
 
 			else if (*(int *)lst->next->next->content < *(int *)lst->content)
-				execActionsB(stack, "ra");
+				execActions(stack, "ra");
 
 		}
 		else
 		{
-			execActionsB(stack, "sa");
-			execActionsB(stack, "rra");
+			execActions(stack, "sa");
+			execActions(stack, "rra");
 		}
 	}
 	else
 	{
 		if (*(int *)lst->content < *(int *)lst->next->next->content)
 		{
-			execActionsB(stack, "sa");
-			execActionsB(stack, "ra");
+			execActions(stack, "sa");
+			execActions(stack, "ra");
 		}
 		else
-			execActionsB(stack, "rra");
+			execActions(stack, "rra");
 	}
 }

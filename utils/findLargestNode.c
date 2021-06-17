@@ -21,7 +21,7 @@ void	*findLargestNode(t_list *lst)
 	{
 		if (*(int *)max < *(int *)lst->content)
 			max = lst->content;
-		lst = lst->content;
+		lst = lst->next;
 	}
 	return (max);
 }

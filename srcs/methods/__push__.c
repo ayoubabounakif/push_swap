@@ -39,23 +39,23 @@ void		__pushFront__(t_stack *stack, char *key)
 {
 	if (key[1] == 'a')
 	{
-		printf("executing a push from a to b\n");
+		printf("executing a push from b to a\n");
 		ft_putstr_fd("pa\n", STDOUT_FILENO);
-		pushFrontOtherStack(&stack->a, &stack->b);
-		deleteHead(&stack->a);
+		pushFrontOtherStack(&stack->b, &stack->a);
+		deleteHead(&stack->b);
 
-		printf("deleting head from stack->a\n");
+		printf("deleting head from stack->b\n");
 		fflush(stdout);
 
 	}
 	if (key[1] == 'b')
 	{
-		printf("executing a push from b to a\n");
+		printf("executing a push from a to b\n");
 		ft_putstr_fd("pb\n", STDOUT_FILENO);
-		pushFrontOtherStack(&stack->b, &stack->a);
-		deleteHead(&stack->b);
+		pushFrontOtherStack(&stack->a, &stack->b);
+		deleteHead(&stack->a);
 
-		printf("deleting head from stack->b\n");
+		printf("deleting head from stack->a\n");
 		fflush(stdout);
 		
 	}

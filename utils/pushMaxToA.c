@@ -16,14 +16,14 @@ void	pushMaxToA(t_stack *stack, void *value)
 {
 	int		position;
 	int		size;
-
+	
 	size = ft_lstsize(stack->b);
 	position = findPosition(stack->b, value);
 	if (position <= 2)
 	{
 		if (position > 1)
 			execActionsB(stack, "sb");
-		execActionsB(stack, "pb");
+		execActionsF(stack, "pa");
 	}
 	else
 	{
@@ -45,6 +45,7 @@ void	pushMaxToA(t_stack *stack, void *value)
 				position++;
 			}
 		}
-		execActionsB(stack, "pb");
+		execActionsF(stack, "pa");
 	}
+	
 }

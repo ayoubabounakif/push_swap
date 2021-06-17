@@ -21,16 +21,15 @@ void	__sortAll__(t_stack *stack)
 	int		range;
 
 	minValue = findSmallestNode(stack->a);
+	maxValue = findLargestNode(stack->a);
 	range = *(int *)minValue;
 	while (stack->a != NULL)
 	{
 		lstA = stack->a;
 		while (lstA != NULL)
 		{
-			// TO-DO: Fix infinite loop.
 			if (*(int *)lstA->content <= range)
-				printf("Infinite loop!\n");
-				// pushMinToB(stack, lstA->content);
+				pushMinToB(stack, lstA->content);
 			lstA = lstA->next;
 		}
 		range += 30;
@@ -38,13 +37,14 @@ void	__sortAll__(t_stack *stack)
 
 			/* 	This piece of code will loop through stack B
 				and search for the largest node and push it to stack A */
-/* 	lstB = stack->b;
+	lstB = stack->b;
 	while (lstB != NULL)
 	{
-		// maxValue = findLargestNode(stack->b);
-		exit(0);
-		// pushMaxToA(stack, maxValue);
+		maxValue = findLargestNode(stack->b);
+		pushMaxToA(stack, maxValue);
 		lstB = lstB->next;
-	} */
-	ft_lstprint_int(stack->b);
+	}
+
+	printf("----- stack a ----\n");
+	ft_lstprint_int(stack->a);
 }

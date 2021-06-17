@@ -68,17 +68,9 @@ int		main(int ac, char *av[])
 			return (EXIT_SUCCESS);
 		}
 
-		// printf("list before sort\n");
-		// fflush(stdout);
-		// ft_lstprint_int(stack->a);
-		// // MAIN PROGRAM : Sort the godamn stack
-		// printf("\ngonna start execution actions zzzzzz\n\n");
 
 		sortStack(stack, ac);
 
-		// printf("\n");
-		// printf("list after sort\n");
-		// ft_lstprint_int(stack->a);
 		
 		// Stack destructor
 		StackDestructor(stack, free);

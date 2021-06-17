@@ -22,7 +22,7 @@ $(LIBNAME): $(SRC)
 
 $(NAME): $(LIBNAME)
 	@echo "\033[0;32mCompilation in progress!"
-	gcc -g3 -fsanitize=address $(FLAGS) $(SRC) libft.a -D BUFFER_SIZE=1024 -o $(EXEC)
+	gcc -g3 $(FLAGS) $(SRC) libft.a -D BUFFER_SIZE=1024 -o $(EXEC)
 	@echo "\033[0;34mCompilation done."
 	rm -rf $(EXEC).dSYM
 

@@ -6,12 +6,14 @@ NAME = push_swap
 
 EXEC = push_swap
 
-SRC = main.c \
+SRC = push_swap.c \
 srcs/subroutines/StackConstructor.c srcs/subroutines/StackSetter.c srcs/subroutines/stackDesctructor.c \
 srcs/methods/__swap__.c srcs/methods/__rotation__.c srcs/methods/__push__.c \
 srcs/__sort3__.c srcs/__sort4__.c srcs/__sort5__.c srcs/__sortAll__.c \
 utils/checkForDups.c utils/syntaxChecker.c utils/isSorted.c utils/execActions.c \
 utils/isEvenOrOdd.c utils/findSmallestNode.c utils/findLargestNode.c utils/findPosition.c utils/pushMinToB.c utils/pushMaxToA.c \
+
+SRC_BONUS = checker.c \
 
 all: $(NAME)
 

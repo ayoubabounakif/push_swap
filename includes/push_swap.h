@@ -24,6 +24,11 @@
 # define EVERYTHING_SORTED 1002
 # define NOT_SORTED 1003
 
+# define TRUE 1
+# define FALSE 0
+
+# define EQUAL 0
+
 # define EVEN 0
 # define ODD 1
 

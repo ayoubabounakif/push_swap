@@ -12,6 +12,15 @@
 
 # include "../includes/push_swap.h"
 
+void	execCheckerActions(t_stack *stack, char *key)
+{
+	if (key[0] == 's')
+		__swap__(stack, key);
+	else if (key[0] == 'p')
+		__push__(stack, key);
+	return ;
+}
+
 void	execActions(t_stack *stack, char *key)
 {
 	if (key[0] == 's')

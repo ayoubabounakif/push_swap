@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-int		isEvenOrOdd(int n)
+int	isEvenOrOdd(int n)
 {
 	if (n % 2 == 0)
 		return (EVEN);

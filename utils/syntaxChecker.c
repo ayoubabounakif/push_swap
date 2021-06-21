@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#	include "../includes/push_swap.h"
 
-int		syntaxChecker(int ac, char **arg)
+int	syntaxChecker(int ac, char **arg)
 {
 	int		tmp;
 	int		index;

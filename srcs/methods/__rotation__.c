@@ -28,7 +28,7 @@ static void	rotateList(t_list **head_ref, int k)
 		count++;
 	}
 	if (current == NULL)
-		return;
+		return ;
 	kthNode = current;
 	while (current->next != NULL)
 		current = current->next;

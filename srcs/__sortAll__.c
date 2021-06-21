@@ -10,7 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
+
+void	backToA(t_stack *stack, void *maxValue)
+{
+	t_list	*lstB;
+
+	lstB = stack->b;
+	while (lstB != NULL)
+	{
+		maxValue = findLargestNode(stack->b);
+		pushMaxToA(stack, maxValue);
+		lstB = stack->b;
+	}
+}
 
 void	__sortAll__(t_stack *stack)
 {
@@ -35,16 +48,5 @@ void	__sortAll__(t_stack *stack)
 		}
 		range += *(int *)maxValue / 10;
 	}
-
-	/* 	This piece of code will loop through stack B
-		and search for the largest node and push it to stack A */
-	t_list	*lstB;
-
-	lstB = stack->b;
-	while (lstB != NULL)
-	{
-		maxValue = findLargestNode(stack->b);
-		pushMaxToA(stack, maxValue);
-		lstB = stack->b;
-	}
+	backToA(stack, maxValue);
 }

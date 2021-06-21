@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	pushMaxToA(t_stack *stack, void *value)
 {
 	int		position;
 	int		size;
-	
+
 	size = ft_lstsize(stack->b);
 	position = findPosition(stack->b, value);
 	if (position <= 2)
@@ -47,5 +47,4 @@ void	pushMaxToA(t_stack *stack, void *value)
 		}
 		execActions(stack, "pa", PUSH_SWAP);
 	}
-	
 }

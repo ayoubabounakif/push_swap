@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
-
-// TO-DO : Make this function general
+#include "../includes/push_swap.h"
 
 void	execActions(t_stack *stack, char *key, int program)
 {

@@ -110,6 +110,5 @@ int	main(int ac, char *av[])
 		__main__(stack);
 		StackDestructor(stack, free);
 	}
-	while (1);
 	return (EXIT_SUCCESS);
 }

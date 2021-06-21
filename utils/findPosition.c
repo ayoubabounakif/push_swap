@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-int		findPosition(t_list *lst, void *value)
+int	findPosition(t_list *lst, void *value)
 {
 	int		i;
 

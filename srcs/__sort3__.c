@@ -12,6 +12,17 @@
 
 #	include "../includes/push_swap.h"
 
+void	helper(t_stack *stack, t_list *lst)
+{
+	if (*(int *)lst->content < *(int *)lst->next->next->content)
+	{
+		execActions(stack, "sa", PUSH_SWAP);
+		execActions(stack, "ra", PUSH_SWAP);
+	}
+	else
+		execActions(stack, "rra", PUSH_SWAP);
+}
+
 void	__sort3__(t_stack *stack)
 {
 	t_list	*lst;
@@ -25,10 +36,8 @@ void	__sort3__(t_stack *stack)
 		{
 			if (*(int *)lst->next->next->content > *(int *)lst->content)
 				execActions(stack, "sa", PUSH_SWAP);
-
 			else if (*(int *)lst->next->next->content < *(int *)lst->content)
 				execActions(stack, "ra", PUSH_SWAP);
-
 		}
 		else
 		{
@@ -37,13 +46,5 @@ void	__sort3__(t_stack *stack)
 		}
 	}
 	else
-	{
-		if (*(int *)lst->content < *(int *)lst->next->next->content)
-		{
-			execActions(stack, "sa", PUSH_SWAP);
-			execActions(stack, "ra", PUSH_SWAP);
-		}
-		else
-			execActions(stack, "rra", PUSH_SWAP);
-	}
+		helper(stack, lst);
 }

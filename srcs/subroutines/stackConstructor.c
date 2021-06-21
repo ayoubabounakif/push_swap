@@ -10,13 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 t_stack	*StackConstructor(void)
 {
-	t_stack *st;
+	t_stack	*st;
 
-	if (!(st = (t_stack *)malloc(sizeof(t_stack))))
+	st = (t_stack *)malloc(sizeof(t_stack));
+	if (!st)
 		return (FUNCTION_ERROR);
 	st->a = NULL;
 	st->b = NULL;

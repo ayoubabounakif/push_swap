@@ -28,7 +28,8 @@ void	*ft_malloc(size_t n)
 {
 	void	*tmp;
 
-	if (!(tmp = malloc(n)))
+	tmp = malloc(n);
+	if (!tmp)
 		return (NULL);
 	g_alloc[g_all] = tmp;
 	g_all++;

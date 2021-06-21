@@ -20,6 +20,6 @@ char	*ft_strrchr(const char *s, int c)
 	while (i && s[i] != c)
 		i--;
 	if (s[i] == (char)c)
-		return ((char*)s + i);
-	return (0);
+		return ((char *)s + i);
+	return (EXIT_SUCCESS);
 }

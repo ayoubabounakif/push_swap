@@ -2,13 +2,15 @@ FLAGS = -Wall -Wextra -Werror
 
 LIBNAME = libft.a
 
+BONUS = bonus
+
 PS_NAME = push_swap
 PS_EXEC = push_swap
 
 BONUS_NAME = checker
 BONUS_EXEC = checker
 
-GNL = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+GNL = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c 
 
 PS_SRC = push_swap.c \
 srcs/subroutines/StackConstructor.c srcs/subroutines/StackSetter.c srcs/subroutines/stackDesctructor.c \
@@ -33,13 +35,15 @@ $(LIBNAME): $(SRC)
 
 $(PS_NAME): $(LIBNAME)
 	@echo "\033[0;32mCompilation in progress!"
-	gcc -g3 -fsanitize=address $(FLAGS) $(PS_SRC) libft.a $(GNL) -D BUFFER_SIZE=1024 -o $(PS_EXEC)
+	gcc $(FLAGS) $(PS_SRC) libft.a $(GNL) -o $(PS_EXEC)
 	@echo "\033[0;34mCompilation done."
 	rm -rf $(PS_EXEC).dSYM
 
+$(BONUS): $(BONUS_NAME)
+
 $(BONUS_NAME): $(LIBNAME)
 	@echo "\033[0;32mCompilation in progress!"
-	gcc -g3 -fsanitize=address $(FLAGS) $(BONUS_SRC) libft.a $(GNL) -D BUFFER_SIZE=1024 -o $(BONUS_EXEC)
+	gcc $(FLAGS) $(BONUS_SRC) libft.a $(GNL) -o $(BONUS_EXEC)
 	@echo "\033[0;34mCompilation done."
 	rm -rf $(BONUS_EXEC).dSYM
 

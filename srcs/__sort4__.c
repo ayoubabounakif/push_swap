@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	__sort4__(t_stack *stack)
 {
@@ -21,4 +21,3 @@ void	__sort4__(t_stack *stack)
 	__sort3__(stack);
 	execActions(stack, "pa", PUSH_SWAP);
 }
-

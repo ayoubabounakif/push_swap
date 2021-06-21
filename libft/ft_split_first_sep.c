@@ -12,16 +12,17 @@
 
 #include "libft.h"
 
-char			**ft_split_first_sep(char const *s, char c)
+char	**ft_split_first_sep(char const *s, char c)
 {
 	char	**tab;
 	char	*str;
 	char	*value;
 
-	str = (char*)s;
+	str = (char *)s;
 	if (!str)
 		return (0);
-	if (!(tab = ft_malloc(3 * 8)))
+	tab = ft_malloc(3 * 8);
+	if (!tab)
 		return (0);
 	value = ft_strchr(str, c);
 	value[0] = 0;

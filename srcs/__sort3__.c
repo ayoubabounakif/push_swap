@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#	include "../includes/push_swap.h"
 
 void	__sort3__(t_stack *stack)
 {

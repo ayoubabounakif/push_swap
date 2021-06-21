@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/push_swap.h"
-# include "get_next_line/get_next_line.h"
+#include "includes/push_swap.h"
+#include "get_next_line/get_next_line.h"
 
 int	validActions(char *buf)
 {
 	if (buf[0] == 's')
 	{
 		if (((strcmp(buf, "sa") != EQUAL) && (strcmp(buf, "sb") != EQUAL)
-			&& (strcmp(buf, "ss") != EQUAL)))
+				&& (strcmp(buf, "ss") != EQUAL)))
 			return (EXIT_FAILURE);
 	}
 	if (buf[0] == 'r')
 	{
 		if (((strcmp(buf, "ra") != EQUAL) && (strcmp(buf, "rb") != EQUAL)
-			&& (strcmp(buf, "rr") != EQUAL)))
+				&& (strcmp(buf, "rr") != EQUAL)))
 			return (EXIT_FAILURE);
 	}
 	if (buf[0] == 'p')
@@ -39,7 +39,7 @@ int	validActions_2(char *buf)
 {
 	if (buf[0] == 'r' && buf[1] == 'r')
 	{
-		if (buf[2] != 'r' && buf[2] != 'a' && buf[2] != 'b') 
+		if (buf[2] != 'r' && buf[2] != 'a' && buf[2] != 'b')
 			return (EXIT_FAILURE);
 		else
 			return (EXIT_SUCCESS);
@@ -63,7 +63,7 @@ int	syntaxActionsChecker(char *buffer)
 	return (EXIT_SUCCESS);
 }
 
-int	checker(t_stack *stack)
+static void	__main__(t_stack *stack)
 {
 	char	*buffer;
 
@@ -72,61 +72,44 @@ int	checker(t_stack *stack)
 		if (syntaxActionsChecker(buffer) == EXIT_FAILURE)
 		{
 			ft_putstr_fd("Error\n", STDERR_FILENO);
-			return (EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 		}
 		execActions(stack, buffer, CHECKER);
 		free(buffer);
 		buffer = NULL;
 	}
-    if (isSorted(stack->a) == EVERYTHING_SORTED && stack->b == NULL)
-        ft_putstr_fd("OK\n", STDOUT_FILENO);
-    else
-        ft_putstr_fd("KO\n", STDOUT_FILENO);
-    return (EXIT_SUCCESS);
+	free(buffer);
+	if (isSorted(stack->a) == EVERYTHING_SORTED && stack->b == NULL)
+		ft_putstr_fd("OK\n", STDOUT_FILENO);
+	else
+		ft_putstr_fd("KO\n", STDOUT_FILENO);
+	return ;
 }
 
 int	main(int ac, char *av[])
 {
-	int			i;
 	t_stack		*stack;
 
 	if (ac == 1)
 		return (EXIT_FAILURE);
 	else
 	{
-		i = 0;
-		while (++i < ac)
+		if (!syntaxChecker(ac, av))
 		{
-			// Syntax handling
-			if (!syntaxChecker(av[i]))
-			{
-				ft_putstr_fd("Error\n", STDERR_FILENO);
-				return (EXIT_FAILURE);
-			}
-		}
-		// Constructor
-		if (!(stack = StackConstructor()))
+			ft_putstr_fd("Error\n", STDERR_FILENO);
 			return (EXIT_FAILURE);
-
-		// Setter
+		}
+		stack = StackConstructor();
 		if (!StackSetter(ac, av, stack))
 			return (EXIT_FAILURE);
-		
-		// Duplicates handling
 		if (checkForDups(stack->a) == DUPLICATE_FOUND)
 		{
 			ft_putstr_fd("Error\n", STDERR_FILENO);
 			return (EXIT_FAILURE);
 		}
-
-        if (checker(stack) == EXIT_FAILURE)
-		{
-			ft_putstr_fd("Error\n", STDERR_FILENO);
-			return (EXIT_FAILURE);
-		}
-		
-		// Stack destructor
+		__main__(stack);
 		StackDestructor(stack, free);
 	}
+	while (1);
 	return (EXIT_SUCCESS);
 }

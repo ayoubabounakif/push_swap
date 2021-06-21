@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 void	ft_exit(char *msg)
 {
-	write(1, "Error\n", 6);
-	ft_putstr_fd(msg, 1);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	ft_putstr_fd(msg, STDERR_FILENO);
 	exit(0);
 }

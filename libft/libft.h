@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-typedef	struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -47,14 +47,14 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t			ft_strlcpy(char *d, const char *s, size_t n);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 char			*ft_strnstr(const char *haystack,
-							const char *needle, size_t len);
+					const char *needle, size_t len);
 int				ft_atoi(const char *str);
 void			*ft_calloc(size_t count, size_t size);
 char			*ft_strdup(const char *s1);
 int				*ft_intdup(const int d);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
-char 			*ft_strjoin_c(char *str, char c);
+char			*ft_strjoin_c(char *str, char c);
 char			*ft_strjoin_c_beggining(char *s, char c);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
@@ -78,61 +78,5 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-void			ft_lstprint_int(t_list *lst); // The printing is typecasted to an int right now
-
-/*
-**	stupid one usage version implementation of realloc
-*/
-void			*ft_mem_grow(void *addr, size_t old_size, size_t new_size);
-/*
-**	a resizable string that can be appended to its end
-**	(a char * on steroids)
-*/
-typedef struct s_rstr *t_rstr;
-
-struct			s_rstr
-{
-	char		*data;
-	int			alloc;
-	int			len;
-};
-/*
-**	rstr constructor
-*/
-t_rstr			rstr_create(int alloc);
-/*
-**	rstr destructor
-*/
-void			rstr_destroy(void *rs);
-/*
-**	rstr setter
-*/
-void			rstr_set(t_rstr rs, size_t index, char value);
-/*
-**	appending to the end of the rstr
-*/
-void			rstr_add(t_rstr rs, char value);
-/*
-**	clear rstr
-*/
-void			rstr_clear(t_rstr rs);
-
-/*
-**	convert str to c string
-*/
-
-char			*rstr_to_cstr(t_rstr rs);
-char    		rstr_get(t_rstr rs, int index);
-t_rstr			cstr_to_rstr(char *cstr);
-/*
-**	copy a c string to a resizble string without making
-** a new resizble string in memory
-*/
-void			cstr_to_rstr_without_n_rs(char *src, t_rstr dst);
-
-/*
-** make a clone of a resizble string
-*/
-t_rstr			rstr_clone(t_rstr src);
 
 #endif

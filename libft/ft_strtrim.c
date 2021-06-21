@@ -12,14 +12,15 @@
 
 #include "libft.h"
 
-static char		*display(char const *s1, int start, int end)
+static char	*display(char const *s1, int start, int end)
 {
 	char	*str;
 	int		i;
 
 	i = 0;
-	if (!(str = (char *)ft_malloc(sizeof(char) * ((end + 1) - start) + 1)))
-		return (0);
+	str = (char *)ft_malloc(sizeof(char) * ((end + 1) - start) + 1);
+	if (!str)
+		return (NULL);
 	while (start < (end + 1))
 	{
 		str[i] = s1[start];
@@ -30,11 +31,11 @@ static char		*display(char const *s1, int start, int end)
 	return (str);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		start;
 	int		end;
-	
+
 	start = 0;
 	if (!s1)
 		return (0);

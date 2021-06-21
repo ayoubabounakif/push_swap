@@ -12,22 +12,27 @@
 
 # include "../includes/push_swap.h"
 
-int		syntaxChecker(char *arg)
+int		syntaxChecker(int ac, char **arg)
 {
 	int		tmp;
 	int		index;
+	int		i;
 
-	tmp = ft_atoi(arg);
-	if (tmp == -1953752846 || tmp == 1953752846)
-		return (FUNCTION_ERROR);
-	index = 0;
-	if (tmp < 0)
-		index = 1;
-	while (arg[index] != '\0')
+	i = 0;
+	while (++i < ac)
 	{
-		if (!ft_isdigit(arg[index]))
+		tmp = ft_atoi(arg[i]);
+		if (tmp == -1953752846 || tmp == 1953752846)
 			return (FUNCTION_ERROR);
-		index++;
+		index = 0;
+		if (tmp < 0)
+			index = 1;
+		while (arg[i][index] != '\0')
+		{
+			if (!ft_isdigit(arg[i][index]))
+				return (FUNCTION_ERROR);
+			index++;
+		}
 	}
 	return (FUNCTION_SUCCESS);
 }

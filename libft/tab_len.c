@@ -5,12 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabounak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 20:40:50 by aabounak          #+#    #+#             */
-/*   Updated: 2021/05/23 20:41:00 by aabounak         ###   ########.fr       */
+/*   Created: 2021/06/21 14:58:06 by aabounak          #+#    #+#             */
+/*   Updated: 2021/06/21 15:00:27 by aabounak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		tab_len(char **tab)
+#include "libft.h"
+
+int	tab_len(char **tab)
 {
 	int		i;
 

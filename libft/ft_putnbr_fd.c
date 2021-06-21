@@ -26,8 +26,11 @@ void	ft_putnbr_fd(int n, int fd)
 		n = -n;
 	}
 	temp = n;
-	while ((temp /= 10) > 0)
+	while (temp > 0)
+	{
+		temp /= 10;
 		size *= 10;
+	}
 	temp = n;
 	while (size && n != -2147483648)
 	{

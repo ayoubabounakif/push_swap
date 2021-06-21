@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-#include "libft.h"
-
 char	*ft_strjoin_c_beggining(char *s1, char c)
 {
 	char	*str;
@@ -24,8 +22,7 @@ char	*ft_strjoin_c_beggining(char *s1, char c)
 	j = 0;
 	if (s1 == 0)
 		return (0);
-	if (!(str = (char *)malloc(ft_strlen(s1) + 1 + 1)))
-		return (0);
+	str = (char *)malloc(ft_strlen(s1) + 1 + 1);
 	str[0] = c;
 	while (s1[j] != '\0')
 	{
@@ -37,7 +34,6 @@ char	*ft_strjoin_c_beggining(char *s1, char c)
 	return (str);
 }
 
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
@@ -48,8 +44,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if ((s1 == 0 && s2 == 0) || !s1)
 		return (0);
-	if (!(str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
-		return (0);
+	str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	while (s1[i] != '\0')
 	{
 		str[i] = s1[i];
@@ -65,7 +60,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-char 			*ft_strjoin_c(char *s1, char c)
+char	*ft_strjoin_c(char *s1, char c)
 {
 	char	*str;
 	int		i;
@@ -73,8 +68,7 @@ char 			*ft_strjoin_c(char *s1, char c)
 	i = 0;
 	if (s1 == 0)
 		return (0);
-	if (!(str = (char *)malloc(ft_strlen(s1) + 1 + 1)))
-		return (0);
+	str = (char *)malloc(ft_strlen(s1) + 1 + 1);
 	while (s1[i] != '\0')
 	{
 		str[i] = s1[i];

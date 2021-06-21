@@ -23,7 +23,6 @@ void	__sortAll__(t_stack *stack)
 	minValue = findSmallestNode(stack->a);
 	maxValue = findLargestNode(stack->a);
 	range = *(int *)minValue;
-	// printf("--- operations ---\n");
 	while (stack->a != NULL)
 	{
 		lstA = stack->a;
@@ -37,12 +36,8 @@ void	__sortAll__(t_stack *stack)
 		range += *(int *)maxValue / 10;
 	}
 
-			/* 	This piece of code will loop through stack B
-				and search for the largest node and push it to stack A */
-	// printf("--- stack b ---\n");
-	// ft_lstprint_int(stack->b);
-	// printf("--- operations ---\n");
-
+	/* 	This piece of code will loop through stack B
+		and search for the largest node and push it to stack A */
 	t_list	*lstB;
 
 	lstB = stack->b;

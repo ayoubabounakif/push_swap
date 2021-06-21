@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
-int			*ft_intdup(const int d)
+int	*ft_intdup(const int d)
 {
-	int		*n;
+	int	*n;
 
 	n = (int *)malloc(sizeof(int));
 	*n = d;

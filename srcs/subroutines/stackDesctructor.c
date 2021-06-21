@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void    StackDestructor(t_stack *stack, void (*del)(void *))
+void	StackDestructor(t_stack *stack, void (*del)(void *))
 {
-    ft_lstclear(&stack->a, (*del));
-    ft_lstclear(&stack->b, (*del));
+	ft_lstclear(&stack->a, (*del));
+	ft_lstclear(&stack->b, (*del));
 }

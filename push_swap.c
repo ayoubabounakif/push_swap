@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/push_swap.h"
+#include "includes/push_swap.h"
 
 void	sortStack(t_stack *stack, int ac)
 {
@@ -25,53 +25,42 @@ void	sortStack(t_stack *stack, int ac)
 	return ;
 }
 
-int		main(int ac, char *av[])
+static int	__main__(int ac, char *av[], t_stack *stack)
+{
+	stack = StackConstructor();
+	if (!StackSetter(ac, av, stack))
+		return (EXIT_FAILURE);
+	if (checkForDups(stack->a) == DUPLICATE_FOUND)
+		return (EXIT_FAILURE);
+	if (isSorted(stack->a) == EVERYTHING_SORTED)
+	{
+		StackDestructor(stack, free);
+		return (EXIT_SUCCESS);
+	}
+	sortStack(stack, ac);
+	StackDestructor(stack, free);
+	return (EXIT_SUCCESS);
+}
+
+int	main(int ac, char *av[])
 {	
-	int			i;
 	t_stack		*stack;
 
+	stack = NULL;
 	if (ac == 1)
 		return (EXIT_FAILURE);
 	else
 	{
-		i = 0;
-		while (++i < ac)
-		{
-			// Syntax handling
-			if (!syntaxChecker(av[i]))
-			{
-				ft_putstr_fd("Error\n", STDERR_FILENO);
-				return (EXIT_FAILURE);
-			}
-		}
-		// Constructor
-		if (!(stack = StackConstructor()))
-			return (EXIT_FAILURE);
-
-		// Setter
-		if (!StackSetter(ac, av, stack))
-			return (EXIT_FAILURE);
-		
-		// Duplicates handling
-		if (checkForDups(stack->a) == DUPLICATE_FOUND)
+		if (!syntaxChecker(ac, av))
 		{
 			ft_putstr_fd("Error\n", STDERR_FILENO);
 			return (EXIT_FAILURE);
 		}
-
-		// TO-DO : Check if what's given is already sorted.
-
-		// FIX THIS FUNCTION
-		if (isSorted(stack->a) == EVERYTHING_SORTED)
+		if (__main__(ac, av, stack) == EXIT_FAILURE)
 		{
-			StackDestructor(stack, free);
-			return (EXIT_SUCCESS);
+			ft_putstr_fd("Error\n", STDERR_FILENO);
+			return (EXIT_FAILURE);
 		}
-
-		sortStack(stack, ac);
-		
-		// Stack destructor
-		StackDestructor(stack, free);
 	}
 	return (EXIT_SUCCESS);
 }

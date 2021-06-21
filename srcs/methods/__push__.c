@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	deleteHead(t_list **head_ref)
 {
@@ -44,12 +44,11 @@ static void	pushOtherStack(t_list **src, t_list **dst)
 	if (*src == NULL)
 		return ;
 	temp = *src;
-
 	addNode(dst, temp->content);
 	deleteHead(src);
 }
 
-void		__push__(t_stack *stack, char *key, int program)
+void	__push__(t_stack *stack, char *key, int program)
 {
 	if (key[1] == 'a')
 	{
@@ -61,6 +60,6 @@ void		__push__(t_stack *stack, char *key, int program)
 	{
 		if (program == PUSH_SWAP)
 			ft_putstr_fd("pb\n", STDOUT_FILENO);
-		pushOtherStack(&stack->a, &stack->b);	
+		pushOtherStack(&stack->a, &stack->b);
 	}
 }

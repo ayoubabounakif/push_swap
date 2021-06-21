@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#	include "../../includes/push_swap.h"
 
-int		StackSetter(int ac, char *av[], t_stack *stack)
+int	StackSetter(int ac, char *av[], t_stack *stack)
 {
 	int		i;
 

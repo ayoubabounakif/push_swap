@@ -69,7 +69,7 @@ void	__sortAll__(t_stack *stack);
 /*
 **  utils
 */
-int		syntaxChecker(char *arg);
+int		syntaxChecker(int ac, char **arg);
 int		checkForDups(t_list *head);
 int		isSorted(t_list *head);
 int		isEvenOrOdd(int n);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		condition(long result, long sign)
+int	condition(long result, long sign)
 {
 	if (result > 2147483648 && sign == -1)
 		return (-1953752846);
@@ -19,7 +19,7 @@ int		condition(long result, long sign)
 	return (0);
 }
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	long	sign;
 	long	result;
@@ -27,7 +27,7 @@ int		ft_atoi(const char *str)
 	sign = 1;
 	result = 0;
 	while (*str == 32 || *str == 10 || *str == 9
-				|| *str == 11 || *str == 12 || *str == 13)
+		|| *str == 11 || *str == 12 || *str == 13)
 		str++;
 	if (*str == '+' || *str == '-')
 	{
@@ -41,7 +41,7 @@ int		ft_atoi(const char *str)
 			return (result * sign);
 		result = (result * 10) + (*str - '0');
 		if ((result > 2147483648 && sign == -1)
-				|| (result > 2147483647 && sign == 1))
+			|| (result > 2147483647 && sign == 1))
 			return (condition(result, sign));
 		str++;
 	}

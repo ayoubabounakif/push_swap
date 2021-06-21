@@ -1,4 +1,4 @@
-FLAGS = 
+FLAGS = -Wall -Wextra -Werror
 
 LIBNAME = libft.a
 
@@ -39,7 +39,7 @@ $(PS_NAME): $(LIBNAME)
 
 $(BONUS_NAME): $(LIBNAME)
 	@echo "\033[0;32mCompilation in progress!"
-	gcc $(FLAGS) $(BONUS_SRC) libft.a $(GNL) -D BUFFER_SIZE=1024 -o $(BONUS_EXEC)
+	gcc -g3 -fsanitize=address $(FLAGS) $(BONUS_SRC) libft.a $(GNL) -D BUFFER_SIZE=1024 -o $(BONUS_EXEC)
 	@echo "\033[0;34mCompilation done."
 	rm -rf $(BONUS_EXEC).dSYM
 

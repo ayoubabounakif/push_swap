@@ -61,8 +61,7 @@ static int	countList(t_list *head)
 	t_list	*content;
 	int		i;
 
-	if (head != NULL)
-		content = head;
+	content = head;
 	i = 0;
 	while (content != NULL)
 	{

@@ -32,6 +32,9 @@
 # define EVEN 0
 # define ODD 1
 
+# define PUSH_SWAP 1004
+# define CHECKER 1005
+
 typedef struct	s_stack
 {
     t_list	*a;
@@ -51,10 +54,9 @@ int     StackSetter(int ac, char *av[], t_stack *stack);
 /*
 ** methods (actions)
 */
-void    __swap__(t_stack *stack, char *key);
-void    __rotation__(t_stack *stack, char *key);
-void	__push__(t_stack *stack, char *key);
-void	__push__(t_stack *stack, char *key);
+void    __swap__(t_stack *stack, char *key, int program);
+void    __rotation__(t_stack *stack, char *key, int program);
+void	__push__(t_stack *stack, char *key, int program);
 
 /*
 ** main functions
@@ -78,7 +80,7 @@ int		findPosition(t_list *lst, void *value);
 void	pushMinToB(t_stack *stack, void *value);
 void	pushMaxToA(t_stack *stack, void *value);
 
-void	execActions(t_stack *stack, char *key);
+void	execActions(t_stack *stack, char *key, int program);
 
 /*
 **  stack destructor

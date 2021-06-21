@@ -28,7 +28,7 @@ static void	swapList(t_list **lst)
 	}
 }
 
-void	__swap__(t_stack *stack, char *key)
+void	__swap__(t_stack *stack, char *key, int program)
 {
 	t_list	*tempA;
 	t_list	*tempB;
@@ -37,17 +37,20 @@ void	__swap__(t_stack *stack, char *key)
 	tempB = stack->b;
 	if (key[1] == 'a')
 	{
-		ft_putstr_fd("sa\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("sa\n", STDOUT_FILENO);
 		swapList(&tempA);
 	}
 	else if (key[1] == 'b')
 	{
-		ft_putstr_fd("sb\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("sb\n", STDOUT_FILENO);
 		swapList(&tempB);
 	}
 	else if (key[1] == 's')
 	{
-		ft_putstr_fd("ss\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("ss\n", STDOUT_FILENO);
 		swapList(&tempA);
 		swapList(&tempB);
 	}

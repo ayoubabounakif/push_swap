@@ -72,51 +72,57 @@ static int	countList(t_list *head)
 	return (i);
 }
 
-static void	reverseRotation(t_stack *stack, char *key)
+static void	reverseRotation(t_stack *stack, char *key, int program)
 {
 	if (key[2] == 'a')
 	{
-		ft_putstr_fd("rra\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("rra\n", STDOUT_FILENO);
 		rotateList(&stack->a, countList(stack->a) - 1);
 	}
 	else if (key[2] == 'b')
 	{
-		ft_putstr_fd("rrb\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("rrb\n", STDOUT_FILENO);
 		rotateList(&stack->b, countList(stack->b) - 1);
 	}
 	else if (key[2] == 'r')
 	{
-		ft_putstr_fd("rrr\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("rrr\n", STDOUT_FILENO);
 		rotateList(&stack->a, countList(stack->a) - 1);
 		rotateList(&stack->b, countList(stack->b) - 1);
 	}
 }
 
-static void	basicRotation(t_stack *stack, char *key)
+static void	basicRotation(t_stack *stack, char *key, int program)
 {
 	if (key[1] == 'a')
 	{
-		ft_putstr_fd("ra\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("ra\n", STDOUT_FILENO);
 		rotateList(&stack->a, 1);
 	}
 	else if (key[1] == 'b')
 	{
-		ft_putstr_fd("rb\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("rb\n", STDOUT_FILENO);
 		rotateList(&stack->b, 1);
 	}
 	else if (key[1] == 'r')
 	{
-		ft_putstr_fd("rr\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("rr\n", STDOUT_FILENO);
 		rotateList(&stack->a, 1);
 		rotateList(&stack->b, 1);
 	}
 }
 
-void		__rotation__(t_stack *stack, char *key)
+void		__rotation__(t_stack *stack, char *key, int program)
 {
     if (ft_strlen(key) == 2)
-		basicRotation(stack, key);
+		basicRotation(stack, key, program);
     if (ft_strlen(key) == 3)
-		reverseRotation(stack, key);
+		reverseRotation(stack, key, program);
 	return ;
 }

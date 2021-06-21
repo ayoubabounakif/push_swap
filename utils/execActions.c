@@ -12,22 +12,15 @@
 
 # include "../includes/push_swap.h"
 
-void	execCheckerActions(t_stack *stack, char *key)
-{
-	if (key[0] == 's')
-		__swap__(stack, key);
-	else if (key[0] == 'p')
-		__push__(stack, key);
-	return ;
-}
+// TO-DO : Make this function general
 
-void	execActions(t_stack *stack, char *key)
+void	execActions(t_stack *stack, char *key, int program)
 {
 	if (key[0] == 's')
-		__swap__(stack, key);
+		__swap__(stack, key, program);
 	else if (key[0] == 'r')
-		__rotation__(stack, key);
+		__rotation__(stack, key, program);
 	else if (key[0] == 'p')
-		__push__(stack, key);
+		__push__(stack, key, program);
 	return ;
 }

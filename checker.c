@@ -74,7 +74,7 @@ int	checker(t_stack *stack)
 			ft_putstr_fd("Error\n", STDERR_FILENO);
 			return (EXIT_FAILURE);
 		}
-		execActions(stack, buffer);
+		execActions(stack, buffer, CHECKER);
 		free(buffer);
 		buffer = NULL;
 	}

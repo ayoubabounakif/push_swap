@@ -49,16 +49,18 @@ static void	pushOtherStack(t_list **src, t_list **dst)
 	deleteHead(src);
 }
 
-void		__push__(t_stack *stack, char *key)
+void		__push__(t_stack *stack, char *key, int program)
 {
 	if (key[1] == 'a')
 	{
-		ft_putstr_fd("pa\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("pa\n", STDOUT_FILENO);
 		pushOtherStack(&stack->b, &stack->a);
 	}
 	if (key[1] == 'b')
 	{
-		ft_putstr_fd("pb\n", STDOUT_FILENO);
+		if (program == PUSH_SWAP)
+			ft_putstr_fd("pb\n", STDOUT_FILENO);
 		pushOtherStack(&stack->a, &stack->b);	
 	}
 }

@@ -22,8 +22,8 @@ void	pushMaxToA(t_stack *stack, void *value)
 	if (position <= 2)
 	{
 		if (position > 1)
-			execActions(stack, "sb");
-		execActions(stack, "pa");
+			execActions(stack, "sb", PUSH_SWAP);
+		execActions(stack, "pa", PUSH_SWAP);
 	}
 	else
 	{
@@ -32,7 +32,7 @@ void	pushMaxToA(t_stack *stack, void *value)
 		{
 			while (position > 1)
 			{
-				execActions(stack, "rb");
+				execActions(stack, "rb", PUSH_SWAP);
 				position--;
 			}
 		}
@@ -41,11 +41,11 @@ void	pushMaxToA(t_stack *stack, void *value)
 		{
 			while (position <= size)
 			{
-				execActions(stack, "rrb");
+				execActions(stack, "rrb", PUSH_SWAP);
 				position++;
 			}
 		}
-		execActions(stack, "pa");
+		execActions(stack, "pa", PUSH_SWAP);
 	}
 	
 }

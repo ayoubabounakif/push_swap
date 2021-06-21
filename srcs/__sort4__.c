@@ -19,6 +19,6 @@ void	__sort4__(t_stack *stack)
 	minValue = findSmallestNode(stack->a);
 	pushMinToB(stack, minValue);
 	__sort3__(stack);
-	execActions(stack, "pa");
+	execActions(stack, "pa", PUSH_SWAP);
 }
 

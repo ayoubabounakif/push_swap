@@ -22,7 +22,7 @@ void	__sort5__(t_stack *stack)
 	pushMinToB(stack, minValue);
 	__sort3__(stack);
 	if (*(int *)stack->b->content < *(int *)stack->b->next->content)
-		execActions(stack, "sb");
-	execActions(stack, "pa");
-	execActions(stack, "pa");
+		execActions(stack, "sb", PUSH_SWAP);
+	execActions(stack, "pa", PUSH_SWAP);
+	execActions(stack, "pa", PUSH_SWAP);
 }

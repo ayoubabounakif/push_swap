@@ -17,9 +17,11 @@ void	__sortAll__(t_stack *stack)
 	t_list	*lstA;
 	t_list	*betadine;
 	void	*minValue;
+	void	*maxValue;
 	int		range;
 
 	minValue = findSmallestNode(stack->a);
+	maxValue = findLargestNode(stack->a);
 	range = *(int *)minValue;
 	// printf("--- operations ---\n");
 	while (stack->a != NULL)
@@ -32,7 +34,7 @@ void	__sortAll__(t_stack *stack)
 				pushMinToB(stack, lstA->content);
 			lstA = betadine;
 		}
-		range += 30;
+		range += *(int *)maxValue / 10;
 	}
 
 			/* 	This piece of code will loop through stack B
@@ -42,7 +44,6 @@ void	__sortAll__(t_stack *stack)
 	// printf("--- operations ---\n");
 
 	t_list	*lstB;
-	void	*maxValue;
 
 	lstB = stack->b;
 	while (lstB != NULL)

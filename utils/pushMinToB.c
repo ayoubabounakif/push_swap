@@ -24,8 +24,8 @@ void	pushMinToB(t_stack *stack, void *value)
 	if (position <= 2)
 	{
 		if (position > 1)
-			execActions(stack, "sa");
-		execActions(stack, "pb");
+			execActions(stack, "sa", PUSH_SWAP);
+		execActions(stack, "pb", PUSH_SWAP);
 	}
 	else
 	{
@@ -34,7 +34,7 @@ void	pushMinToB(t_stack *stack, void *value)
 		{
 			while (position > 1)
 			{
-				execActions(stack, "ra");
+				execActions(stack, "ra", PUSH_SWAP);
 				position--;
 			}
 		}
@@ -43,10 +43,10 @@ void	pushMinToB(t_stack *stack, void *value)
 		{
 			while (position <= size)
 			{
-				execActions(stack, "rra");
+				execActions(stack, "rra", PUSH_SWAP);
 				position++;
 			}
 		}
-		execActions(stack, "pb");
+		execActions(stack, "pb", PUSH_SWAP);
 	}
 }

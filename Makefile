@@ -33,7 +33,7 @@ $(LIBNAME): $(SRC)
 
 $(PS_NAME): $(LIBNAME)
 	@echo "\033[0;32mCompilation in progress!"
-	gcc $(FLAGS) $(PS_SRC) libft.a $(GNL) -D BUFFER_SIZE=1024 -o $(PS_EXEC)
+	gcc -g3 -fsanitize=address $(FLAGS) $(PS_SRC) libft.a $(GNL) -D BUFFER_SIZE=1024 -o $(PS_EXEC)
 	@echo "\033[0;34mCompilation done."
 	rm -rf $(PS_EXEC).dSYM
 
@@ -51,7 +51,8 @@ clean:
 fclean: clean
 	make fclean -C libft/
 	rm -f *.a
-	rm -f $(EXEC)
+	rm -f $(PS_EXEC)
+	rm -f $(BONUS_EXEC)
 	@echo "\033[0;31mEverything cleaned"
 
 re: fclean all

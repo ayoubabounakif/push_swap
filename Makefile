@@ -2,8 +2,6 @@ FLAGS = -Wall -Wextra -Werror
 
 LIBNAME = libft.a
 
-BONUS = bonus
-
 PS_NAME = push_swap
 PS_EXEC = push_swap
 
@@ -26,7 +24,7 @@ srcs/__sort3__.c srcs/__sort4__.c srcs/__sort5__.c srcs/__sortAll__.c \
 utils/checkForDups.c utils/syntaxChecker.c utils/isSorted.c utils/execActions.c \
 utils/isEvenOrOdd.c utils/findSmallestNode.c utils/findLargestNode.c utils/findPosition.c utils/pushMinToB.c utils/pushMaxToA.c \
 
-all: $(PS_NAME) $(BONUS_NAME)
+all: $(PS_NAME)
 
 $(LIBNAME): $(SRC)
 	@echo "\033[0;35mCompiling libft."
@@ -39,7 +37,7 @@ $(PS_NAME): $(LIBNAME)
 	@echo "\033[0;34mCompilation done."
 	rm -rf $(PS_EXEC).dSYM
 
-$(BONUS): $(BONUS_NAME)
+bonus: $(BONUS_NAME)
 
 $(BONUS_NAME): $(LIBNAME)
 	@echo "\033[0;32mCompilation in progress!"

@@ -35,31 +35,31 @@
 # define PUSH_SWAP 1004
 # define CHECKER 1005
 
-typedef struct	s_stack
+typedef struct s_stack
 {
-    t_list	*a;
-    t_list	*b;
+	t_list	*a;
+	t_list	*b;
 }				t_stack;
 
 /*
-**  stack constructor
+**	stack constructor
 */
 t_stack	*StackConstructor(void);
 
 /*
-**  stack setter
+**	stack setter
 **/
-int     StackSetter(int ac, char *av[], t_stack *stack);
+int		StackSetter(int ac, char *av[], t_stack *stack);
 
 /*
-** methods (actions)
+**	methods (actions)
 */
-void    __swap__(t_stack *stack, char *key, int program);
-void    __rotation__(t_stack *stack, char *key, int program);
+void	__swap__(t_stack *stack, char *key, int program);
+void	__rotation__(t_stack *stack, char *key, int program);
 void	__push__(t_stack *stack, char *key, int program);
 
 /*
-** main functions
+**	main functions
 */
 void	__sort3__(t_stack *stack);
 void	__sort4__(t_stack *stack);
@@ -67,7 +67,7 @@ void	__sort5__(t_stack *stack);
 void	__sortAll__(t_stack *stack);
 
 /*
-**  utils
+**	utils
 */
 int		syntaxChecker(int ac, char **arg);
 int		checkForDups(t_list *head);
@@ -83,8 +83,8 @@ void	pushMaxToA(t_stack *stack, void *value);
 void	execActions(t_stack *stack, char *key, int program);
 
 /*
-**  stack destructor
+**	stack destructor
 */
-void    StackDestructor(t_stack *stack, void (*del)(void *));
+void	StackDestructor(t_stack *stack, void (*del)(void *));
 
 #endif

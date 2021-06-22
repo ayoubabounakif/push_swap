@@ -12,6 +12,29 @@
 
 #include "../includes/push_swap.h"
 
+static void	helper(t_stack *stack, int position, int size)
+{
+	if ((isEvenOrOdd(size) == ODD && position <= (size / 2) + 1)
+		|| (isEvenOrOdd(size) == EVEN && position <= size / 2))
+	{
+		while (position > 1)
+		{
+			execActions(stack, "ra", PUSH_SWAP);
+			position--;
+		}
+	}
+	else if ((isEvenOrOdd(size) == ODD && position > (size / 2))
+		|| (isEvenOrOdd(size) == EVEN && position > (size / 2)))
+	{
+		while (position <= size)
+		{
+			execActions(stack, "rra", PUSH_SWAP);
+			position++;
+		}
+	}
+	execActions(stack, "pb", PUSH_SWAP);
+}
+
 void	pushMinToB(t_stack *stack, void *value)
 {
 	t_list	*tmp_a;
@@ -28,25 +51,5 @@ void	pushMinToB(t_stack *stack, void *value)
 		execActions(stack, "pb", PUSH_SWAP);
 	}
 	else
-	{
-		if ((isEvenOrOdd(size) == ODD && position <= (size / 2) + 1)
-			|| (isEvenOrOdd(size) == EVEN && position <= size / 2))
-		{
-			while (position > 1)
-			{
-				execActions(stack, "ra", PUSH_SWAP);
-				position--;
-			}
-		}
-		else if ((isEvenOrOdd(size) == ODD && position > (size / 2))
-			|| (isEvenOrOdd(size) == EVEN && position > (size / 2)))
-		{
-			while (position <= size)
-			{
-				execActions(stack, "rra", PUSH_SWAP);
-				position++;
-			}
-		}
-		execActions(stack, "pb", PUSH_SWAP);
-	}
+		helper(stack, position, size);
 }

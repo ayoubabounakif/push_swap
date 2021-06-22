@@ -1,4 +1,4 @@
-awk -v loop=500 -v range=10000 'BEGIN{
+awk -v loop=500 -v range=1000 'BEGIN{
   srand()
   do {
     numb = 1 + int(rand() * range)

@@ -16,5 +16,5 @@ void	StackDestructor(t_stack *stack, void (*del)(void *))
 {
 	ft_lstclear(&stack->a, (*del));
 	ft_lstclear(&stack->b, (*del));
-	free(stack);
+	// free(stack);
 }

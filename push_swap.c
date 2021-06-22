@@ -14,13 +14,18 @@
 
 void	sortStack(t_stack *stack, int ac)
 {
-	if (ac == 4)
+	if (ac == 3)
+	{
+		if (*(int *)stack->a->content > *(int *)stack->a->next->content)
+			execActions(stack, "sa", PUSH_SWAP);
+	}
+	else if (ac == 4)
 		__sort3__(stack);
 	else if (ac == 5)
 		__sort4__(stack);
 	else if (ac == 6)
 		__sort5__(stack);
-	else if (ac > 6)
+	else
 		__sortAll__(stack);
 	return ;
 }

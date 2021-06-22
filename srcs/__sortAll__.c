@@ -46,7 +46,7 @@ void	__sortAll__(t_stack *stack)
 				pushMinToB(stack, lstA->content);
 			lstA = betadine;
 		}
-		range += *(int *)maxValue / 8;
+		range += (*(int *)maxValue - *(int *)minValue) / 10;
 	}
 	backToA(stack, maxValue);
 }

@@ -25,7 +25,7 @@ int	syntaxChecker(int ac, char **arg)
 		if (tmp == -1953752846 || tmp == 1953752846)
 			return (FUNCTION_ERROR);
 		index = 0;
-		if (tmp < 0)
+		if (tmp < 0 || arg[i][0] == '+')
 			index = 1;
 		while (arg[i][index] != '\0')
 		{

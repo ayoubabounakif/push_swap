@@ -53,6 +53,8 @@ int	syntaxActionsChecker(char *buffer)
 {
 	int		whichAction;
 
+	if (buffer[0] == '+')
+		buffer++;
 	whichAction = ft_strlen(buffer);
 	if ((whichAction == 2 && validActions(buffer) == EXIT_FAILURE)
 		|| (whichAction == 3 && validActions_2(buffer) == EXIT_FAILURE))

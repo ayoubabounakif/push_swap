@@ -24,15 +24,9 @@
 # define PUSH_SWAP 1004
 # define CHECKER 1005
 
-#ifndef TRUE
 # define TRUE 1
-#endif
-
-#ifndef FALSE
 # define FALSE 0
-#endif
 
-# define EQUAL 0
 # define EVEN 0
 # define ODD 1
 
@@ -81,6 +75,9 @@ int		findPosition(t_list *lst, void *value);
 void	pushMinToB(t_stack *stack, void *value);
 void	pushMaxToA(t_stack *stack, void *value);
 
+/*
+**	actions executer
+*/
 void	execActions(t_stack *stack, char *key, int program);
 
 /*

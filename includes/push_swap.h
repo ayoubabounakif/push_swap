@@ -16,24 +16,25 @@
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
 
-# include <string.h>
-
 # define FUNCTION_ERROR 0
 # define FUNCTION_SUCCESS 1
 # define DUPLICATE_FOUND 1001
 # define EVERYTHING_SORTED 1002
 # define NOT_SORTED 1003
-
-# define TRUE 1
-# define FALSE 0
-
-# define EQUAL 0
-
-# define EVEN 0
-# define ODD 1
-
 # define PUSH_SWAP 1004
 # define CHECKER 1005
+
+#ifndef TRUE
+# define TRUE 1
+#endif
+
+#ifndef FALSE
+# define FALSE 0
+#endif
+
+# define EQUAL 0
+# define EVEN 0
+# define ODD 1
 
 typedef struct s_stack
 {

@@ -17,19 +17,19 @@ int	validActions(char *buf)
 {
 	if (buf[0] == 's')
 	{
-		if (ft_strncmp(buf, "sa\0", 3) != 0 && ft_strncmp(buf, "sb\0", 3) != 0
-			&& ft_strncmp(buf, "ss\0", 3) != 0)
+		if (ft_strncmp(buf, "sa\0", 3) != EQUAL && ft_strncmp(buf, "sb\0", 3) != EQUAL
+			&& ft_strncmp(buf, "ss\0", 3) != EQUAL)
 			return (EXIT_FAILURE);
 	}
 	if (buf[0] == 'r')
 	{
-		if (ft_strncmp(buf, "ra\0", 3) != 0 && ft_strncmp(buf, "rb\0", 3) != 0
-			&& ft_strncmp(buf, "rr\0", 3) != 0)
+		if (ft_strncmp(buf, "ra\0", 3) != EQUAL && ft_strncmp(buf, "rb\0", 3) != EQUAL
+			&& ft_strncmp(buf, "rr\0", 3) != EQUAL)
 			return (EXIT_FAILURE);
 	}
 	if (buf[0] == 'p')
 	{
-		if (ft_strncmp(buf, "pa\0", 3) != 0 && ft_strncmp(buf, "pb\0", 3) != 0)
+		if (ft_strncmp(buf, "pa\0", 3) != EQUAL && ft_strncmp(buf, "pb\0", 3) != EQUAL)
 			return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);

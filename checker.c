@@ -17,19 +17,19 @@ int	validActions(char *buf)
 {
 	if (buf[0] == 's')
 	{
-		if (((strcmp(buf, "sa") != EQUAL) && (strcmp(buf, "sb") != EQUAL)
-				&& (strcmp(buf, "ss") != EQUAL)))
+		if (ft_strncmp(buf, "sa\0", 3) != 0 && ft_strncmp(buf, "sb\0", 3) != 0
+			&& ft_strncmp(buf, "ss\0", 3) != 0)
 			return (EXIT_FAILURE);
 	}
 	if (buf[0] == 'r')
 	{
-		if (((strcmp(buf, "ra") != EQUAL) && (strcmp(buf, "rb") != EQUAL)
-				&& (strcmp(buf, "rr") != EQUAL)))
+		if (ft_strncmp(buf, "ra\0", 3) != 0 && ft_strncmp(buf, "rb\0", 3) != 0
+			&& ft_strncmp(buf, "rr\0", 3) != 0)
 			return (EXIT_FAILURE);
 	}
 	if (buf[0] == 'p')
 	{
-		if ((strcmp(buf, "pa") != EQUAL) && (strcmp(buf, "pb") != EQUAL))
+		if (ft_strncmp(buf, "pa\0", 3) != 0 && ft_strncmp(buf, "pb\0", 3) != 0)
 			return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
@@ -41,20 +41,16 @@ int	validActions_2(char *buf)
 	{
 		if (buf[2] != 'r' && buf[2] != 'a' && buf[2] != 'b')
 			return (EXIT_FAILURE);
-		else
-			return (EXIT_SUCCESS);
+		return (EXIT_SUCCESS);
 	}
 	else
-		return (EXIT_SUCCESS);
-	return (EXIT_SUCCESS);
+		return (EXIT_FAILURE);
 }
 
 int	syntaxActionsChecker(char *buffer)
 {
 	int		whichAction;
 
-	if (buffer[0] == '+')
-		buffer++;
 	whichAction = ft_strlen(buffer);
 	if ((whichAction == 2 && validActions(buffer) == EXIT_FAILURE)
 		|| (whichAction == 3 && validActions_2(buffer) == EXIT_FAILURE))
